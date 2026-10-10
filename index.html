@@ -1415,7 +1415,7 @@ function guestKpi(){const o={inv:0,beba:0,V:0,parked:0,couple:0,S:0,B:0,R:0,r:{d
   for(const p of state.parties)for(const m of p.members){if(p.parked){if(m.age!=='beba')o.parked++;continue}if(p.side==='V'){o.V++;continue}if(m.age==='beba'){o.beba++;continue}
     o.inv++;if(p.couple)o.couple++;else o[p.side]++;const r=mr(p,m);o.r[r]=(o.r[r]||0)+1}return o}
 function guestKpiHtml(){const k=guestKpi();const mx=Math.max(1,k.S,k.B,k.R);
-  const notIn=[k.beba?`${k.beba} ${k.beba===1?'beba':'bebe'}`:'',k.V?`${k.V} izvođača`:'',k.parked?`${k.parked} prekriženih (možda kasnije)`:''].filter(Boolean).join(', ');
+  const notIn=[k.beba?`${k.beba} ${k.beba===1?'beba':'bebe'}`:'',k.V?`${k.V} izvođača (${(()=>{const f=state.parties.filter(p=>p.side==='V'&&!p.parked&&vendorFed(p)).reduce((x,p)=>x+p.members.filter(m=>m.age!=='beba').length,0);return f?`${f} s plaćenom hranom ulazi u meni i budžet`:'nijednom ne plaćamo hranu'})()})`:'',k.parked?`${k.parked} prekriženih (možda kasnije)`:''].filter(Boolean).join(', ');
   const extra=`Brojke uključuju i vas dvoje.${notIn?` Nisu uključeni: ${notIn}.`:''}`;
   return `<section class="card kpis">
     <div class="kpi kpi-hero"><small>Gosti</small><b>${k.r.dolazi+k.r.vjerojatno}</b><span class="kpi-sub">dolaze ili vjerojatno dolaze</span>
