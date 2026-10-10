@@ -1066,6 +1066,17 @@ body.on-home{overflow:hidden}
 .h4-btn{padding:12px 30px;font-size:11.5px}
 @media (max-width:600px){.h4-names{font-size:clamp(48px,14vw,70px)}.cd4{gap:7px}.cd4 .u{width:19.5vw}.cd4 .u b{font-size:clamp(28px,8vw,42px)}.cd4 .u span{letter-spacing:.14em;padding-left:.14em}}
 @media (prefers-reduced-motion:reduce){.h4>*{opacity:1;animation:none}.h4-glow,.cd4 .u:first-child::after,.cd4 b.tick{animation:none}.hero-par,.h4{transform:none}}
+/* ===== v37 candlelight ===== */
+.hero-par,.h4{transform:none!important}
+.h4-light{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.35;mix-blend-mode:screen;
+  background:radial-gradient(circle 34vmax at var(--lx,50%) var(--ly,46%),rgba(255,206,160,.30),rgba(255,180,150,.12) 35%,rgba(255,170,150,.04) 60%,transparent 75%)}
+.h4-dust{position:absolute;inset:0;z-index:2;pointer-events:none;overflow:hidden}
+.h4-dust i{position:absolute;border-radius:50%;background:radial-gradient(circle,#FFF4E0 0,#F2CFA0 45%,rgba(242,207,160,0) 70%);box-shadow:0 0 6px 1px rgba(255,220,170,.6);transform:translate(-50%,-50%);animation:dust 1.6s ease-out forwards}
+@keyframes dust{0%{opacity:0;transform:translate(-50%,-50%) scale(.6)}15%{opacity:1}100%{opacity:0;transform:translate(calc(-50% + var(--dx)),calc(-50% + var(--dy))) scale(.2)}}
+.hero4 .h4{z-index:3}
+@media (prefers-reduced-motion:reduce){.h4-dust{display:none}}
+.h4-bokeh{position:absolute;inset:0;z-index:1;pointer-events:none;mix-blend-mode:screen;opacity:.95}
+.h4-thread{position:absolute;inset:0;z-index:2;pointer-events:none}
 </style>
 </head>
 <body>
@@ -1729,6 +1740,7 @@ V.pregled=()=>{
   return `<section class="hero4">
     <div class="hero-par"><div class="hero-bg" id="hero"></div></div>
     <div class="h4-glow" aria-hidden="true"></div>
+    <canvas class="h4-thread" aria-hidden="true"></canvas>
     <div class="h4" id="cd" aria-live="off">
       <p class="h4-once">Jednom davno, u Varaždinu…</p>
       <h1 class="h4-names">${esc(state.settings.couple)}</h1>
@@ -1746,6 +1758,71 @@ V.pregled=()=>{
   </section>`;
 };
 let cdTimer=null;
+/* fairy-light bokeh that drifts upward and softly parts around the cursor */
+function heroBokeh(hh){
+  const cv=hh.querySelector('.h4-bokeh');if(!cv)return;const ctx=cv.getContext('2d');
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const COLS=[[255,238,218],[255,214,178],[247,204,214],[255,226,196]];
+  let W=0,H=0,dpr=1,P=[],mx=-9999,my=-9999,raf=0;
+  const mk=(init)=>{const big=Math.random()<.18;const r=big?14+Math.random()*16:2.5+Math.random()*9;
+    return {x:Math.random()*W,y:init?Math.random()*H:H+r+Math.random()*40,r,a:big?.07+Math.random()*.08:.16+Math.random()*.32,c:COLS[Math.random()*COLS.length|0],
+      vx:(Math.random()-.5)*.12,vy:-(.06+Math.random()*.22)*(big?.6:1),ph:Math.random()*6.28,sp:.008+Math.random()*.02,ox:0,oy:0}};
+  const size=()=>{const b=hh.getBoundingClientRect();dpr=Math.min(2,window.devicePixelRatio||1);W=b.width;H=b.height;cv.width=W*dpr;cv.height=H*dpr;cv.style.width=W+'px';cv.style.height=H+'px';ctx.setTransform(dpr,0,0,dpr,0,0);
+    const n=Math.max(26,Math.min(64,Math.round(W*H/21000)));P=Array.from({length:n},()=>mk(true))};
+  const draw=()=>{ctx.clearRect(0,0,W,H);ctx.globalCompositeOperation='lighter';
+    for(const p of P){const tw=.65+.35*Math.sin(p.ph);const d=Math.hypot(p.x+p.ox-mx,p.y+p.oy-my);const near=d<170?1-d/170:0;
+      const a=p.a*tw*(1+near*.9);const x=p.x+p.ox,y=p.y+p.oy;const [r,g,b]=p.c;
+      const gr=ctx.createRadialGradient(x,y,0,x,y,p.r);gr.addColorStop(0,`rgba(${r},${g},${b},${a*.55})`);gr.addColorStop(.72,`rgba(${r},${g},${b},${a})`);gr.addColorStop(.86,`rgba(${r},${g},${b},${a*.5})`);gr.addColorStop(1,`rgba(${r},${g},${b},0)`);
+      ctx.fillStyle=gr;ctx.beginPath();ctx.arc(x,y,p.r,0,6.2832);ctx.fill()}};
+  const step=()=>{for(const p of P){p.x+=p.vx;p.y+=p.vy;p.ph+=p.sp;
+      const dx=p.x+p.ox-mx,dy=p.y+p.oy-my,d=Math.hypot(dx,dy);if(d<150&&d>0){const f=(1-d/150)*2.2;p.ox+=dx/d*f;p.oy+=dy/d*f}
+      p.ox*=.94;p.oy*=.94;
+      if(p.y<-p.r-30){Object.assign(p,mk(false))}if(p.x<-40)p.x=W+30;if(p.x>W+40)p.x=-30}
+    draw();if(document.body.contains(hh))raf=requestAnimationFrame(step)};
+  size();addEventListener('resize',()=>{if(document.body.contains(hh))size()});
+  if(reduce){draw();return}
+  hh.addEventListener('pointermove',e=>{const b=hh.getBoundingClientRect();mx=e.clientX-b.left;my=e.clientY-b.top});
+  hh.addEventListener('pointerleave',()=>{mx=-9999;my=-9999});
+  raf=requestAnimationFrame(step);
+}
+function heroCandle(){}
+/* a fine golden silk thread that follows the cursor like a pen writing a love letter */
+function heroThread(hh){
+  const cv=hh.querySelector('.h4-thread');if(!cv)return;const ctx=cv.getContext('2d');
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  let W=0,H=0,dpr=1,pts=[],raf=0,sx=null,sy=null,tx=0,ty=0,active=false;const LIFE=1100;
+  const size=()=>{const b=hh.getBoundingClientRect();dpr=Math.min(2,devicePixelRatio||1);W=b.width;H=b.height;cv.width=W*dpr;cv.height=H*dpr;cv.style.width=W+'px';cv.style.height=H+'px';ctx.setTransform(dpr,0,0,dpr,0,0)};
+  const frame=()=>{const now=performance.now();
+    if(active&&sx!==null){sx+=(tx-sx)*.28;sy+=(ty-sy)*.28;const l=pts[pts.length-1];if(!l||Math.hypot(l.x-sx,l.y-sy)>1.5)pts.push({x:sx,y:sy,t:now})}
+    pts=pts.filter(p=>now-p.t<LIFE);ctx.clearRect(0,0,W,H);
+    const n=pts.length;if(n>2){ctx.lineCap='round';ctx.lineJoin='round';
+      for(let i=1;i<n-1;i++){const p0=pts[i-1],p1=pts[i],p2=pts[i+1];const age=(now-p1.t)/LIFE;const a=Math.pow(1-age,1.6);
+        const m1x=(p0.x+p1.x)/2,m1y=(p0.y+p1.y)/2,m2x=(p1.x+p2.x)/2,m2y=(p1.y+p2.y)/2;
+        ctx.beginPath();ctx.moveTo(m1x,m1y);ctx.quadraticCurveTo(p1.x,p1.y,m2x,m2y);
+        ctx.strokeStyle=`rgba(244,214,168,${(a*.9).toFixed(3)})`;ctx.lineWidth=.35+2.1*a*(i/n);ctx.shadowColor='rgba(255,214,160,.85)';ctx.shadowBlur=10*a;ctx.stroke()}
+      const h=pts[n-1];const ha=Math.max(0,1-(now-h.t)/LIFE);ctx.shadowBlur=14;ctx.fillStyle=`rgba(255,240,215,${ha})`;ctx.beginPath();ctx.arc(h.x,h.y,1.8,0,6.2832);ctx.fill()}
+    if(document.body.contains(hh))raf=requestAnimationFrame(frame)};
+  size();addEventListener('resize',()=>{if(document.body.contains(hh))size()});
+  hh.addEventListener('pointermove',e=>{const b=hh.getBoundingClientRect();tx=e.clientX-b.left;ty=e.clientY-b.top;if(sx===null){sx=tx;sy=ty}active=true});
+  hh.addEventListener('pointerleave',()=>{active=false;sx=null;sy=null});
+  raf=requestAnimationFrame(frame);
+}
+function heroCandle(hh){
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;const fine=matchMedia('(hover:hover) and (pointer:fine)').matches;
+  const light=hh.querySelector('.h4-light'),dust=hh.querySelector('.h4-dust');if(!light)return;
+  let tx=.5,ty=.46,x=.5,y=.46,on=0,ton=0,last=0,lx=0,ly=0,raf=0;
+  const loop=()=>{x+=(tx-x)*.07;y+=(ty-y)*.07;on+=(ton-on)*.05;light.style.setProperty('--lx',(x*100).toFixed(2)+'%');light.style.setProperty('--ly',(y*100).toFixed(2)+'%');light.style.opacity=(.35+on*.65).toFixed(3);
+    if(document.body.contains(hh))raf=requestAnimationFrame(loop)};
+  if(reduce||!fine){light.style.setProperty('--lx','50%');light.style.setProperty('--ly','46%');light.style.opacity=.5;return}
+  raf=requestAnimationFrame(loop);
+  hh.addEventListener('pointermove',e=>{const r=hh.getBoundingClientRect();tx=(e.clientX-r.left)/r.width;ty=(e.clientY-r.top)/r.height;ton=1;
+    const now=performance.now();const d=Math.hypot(e.clientX-lx,e.clientY-ly);
+    if(dust&&now-last>70&&d>10&&dust.childElementCount<26){last=now;lx=e.clientX;ly=e.clientY;
+      const p=document.createElement('i');const sz=(1.5+Math.random()*2.6).toFixed(1);
+      p.style.cssText=`left:${e.clientX-r.left}px;top:${e.clientY-r.top}px;width:${sz}px;height:${sz}px;--dx:${(Math.random()*36-18).toFixed(0)}px;--dy:${(-24-Math.random()*40).toFixed(0)}px;animation-duration:${(1.2+Math.random()*.9).toFixed(2)}s`;
+      p.addEventListener('animationend',()=>p.remove());dust.appendChild(p)}});
+  hh.addEventListener('pointerleave',()=>{tx=.5;ty=.46;ton=0});
+}
 function tickCountdown(){
   const el=$('#cd');if(!el)return;
   let ms=Math.max(0,weddingDate()-new Date());const s=Math.floor(ms/1000);
@@ -2203,7 +2280,7 @@ function render(keepScroll){
   $('#main').innerHTML=V[ui.tab]();
   $$('[data-ks]').forEach(e=>{if(ks[e.dataset.ks]!=null)e.scrollTop=ks[e.dataset.ks]});
   renderNav();autosizeAll();hydrateIdb();
-  if(ui.tab==='pregled'){const hh=$('.hero4');if(hh&&!hh._par){hh._par=1;hh.addEventListener('pointermove',e=>{const r=hh.getBoundingClientRect();hh.style.setProperty('--mx',((e.clientX-r.left)/r.width-.5).toFixed(3));hh.style.setProperty('--my',((e.clientY-r.top)/r.height-.5).toFixed(3))});hh.addEventListener('pointerleave',()=>{hh.style.setProperty('--mx',0);hh.style.setProperty('--my',0)})}const h=$('#hero');const src=SEED_IMGS[3]&&SEED_IMGS[3].src;if(h&&src)h.style.backgroundImage=`url("${src}")`;tickCountdown()}
+  if(ui.tab==='pregled'){const hh=$('.hero4');if(hh&&!hh._fx){hh._fx=1;heroThread(hh)}const h=$('#hero');const src=SEED_IMGS[3]&&SEED_IMGS[3].src;if(h&&src)h.style.backgroundImage=`url("${src}")`;tickCountdown()}
   if(ui.tab==='sjedenje'&&ui.seatView==='plan')applyZoom();
   if(keepScroll!==false)window.scrollTo(0,y);
 }
