@@ -241,7 +241,7 @@ details>summary{cursor:pointer;color:var(--soft);font-style:italic;font-family:v
 .tbl .cname{min-width:230px}
 .tbl .cmode{width:170px}
 .tbl .cplan{width:210px}
-.tbl .cmon{width:124px;min-width:110px}
+.tbl .cmon{width:112px;min-width:104px}
 .tbl .note{font-size:14.5px;color:var(--soft);font-style:italic;font-family:var(--serif);font-weight:500}
 .tbl .note:placeholder-shown:not(:focus){opacity:0}
 .tbl tr:hover .note:placeholder-shown{opacity:1}
@@ -439,7 +439,7 @@ details>summary{cursor:pointer;color:var(--soft);font-style:italic;font-family:v
 .day h3{margin-bottom:14px;text-align:center}
 .tl{position:relative;padding-left:24px}
 .tl::before{content:"";position:absolute;left:8px;top:10px;bottom:10px;border-left:1px solid var(--gold-l)}
-.tlrow{position:relative;display:grid;grid-template-columns:30px 80px minmax(0,1.4fr) minmax(0,1fr) 30px;gap:8px;align-items:center;padding:1px 0}
+.tlrow{position:relative;display:grid;grid-template-columns:30px 80px minmax(0,1.4fr) minmax(0,1fr) 30px 30px;gap:8px;align-items:center;padding:1px 0}
 .tlrow::before{content:"";position:absolute;left:-20px;top:50%;width:8px;height:8px;background:var(--paper);border:1.2px solid var(--gold);transform:translateY(-50%) rotate(45deg)}
 .tlrow .time{font:500 13.5px/1 var(--label);letter-spacing:.06em;color:var(--wine)}
 .tlrow .nt{font-size:15px;color:var(--soft);font-style:italic;font-family:var(--serif);font-weight:500}
@@ -501,7 +501,7 @@ details>summary{cursor:pointer;color:var(--soft);font-style:italic;font-family:v
 .cbl{font:500 9.5px/1.2 var(--label);letter-spacing:.12em;text-transform:uppercase;color:var(--soft);width:66px;flex:none}
 .cbr .psel{flex:1;min-width:150px;height:30px;font-size:14.5px}
 .cbn{width:110px;flex:none}.cbn .in{height:32px}
-.btbl .cfx{width:340px}
+.btbl .cfx{width:300px}
 .btbl .how:not(:empty){margin-top:8px}
 .btbl .cfx .seg{flex-wrap:nowrap}
 .mi1 .dsel{flex:1;min-width:0;height:auto;min-height:34px;font-size:15.5px;white-space:normal;padding-top:4px;padding-bottom:4px}
@@ -643,7 +643,7 @@ b,strong,.kv b{font-weight:500}
   .btbl tr.grp td:empty,.btbl tfoot td:empty{display:none}
   .btbl tfoot tr{flex-wrap:wrap;justify-content:space-between;border-top:1.5px solid var(--ink2);margin-top:10px}
   .btbl tfoot td{border-top:0}
-  .tlrow{grid-template-columns:30px 66px minmax(0,1fr) 30px}.tlrow .nt{display:none}
+  .tlrow{grid-template-columns:30px 66px minmax(0,1fr) 30px 30px}.tlrow .nt{display:none}
 
   .mi .capn{margin-left:0;width:100%}
   .btbl .cfx{width:auto}
@@ -674,6 +674,176 @@ b,strong,.kv b{font-weight:500}
 .expbtn{position:absolute;right:0;top:50%;transform:translateY(-50%)}
 @media (max-width:1180px){.menu-layout2{grid-template-columns:minmax(0,1fr)}.catpanel.sticky{position:static;max-height:none}.expbtn{position:static;transform:none}}
 .cakefoot{margin-top:20px;padding-top:16px;border-top:1px dotted var(--line2)}
+.btbl .cpre{width:124px}
+.prebtn{appearance:none;border:0;background:none;cursor:pointer;text-align:right;padding:4px 0;display:flex;flex-direction:column;align-items:flex-end;width:100%;color:var(--ink)}
+.prebtn b{font-weight:500;font-variant-numeric:lining-nums tabular-nums}
+.prebtn small{font:italic 500 13.5px/1.2 var(--serif);color:var(--soft)}
+.prebtn:hover b{color:var(--wine)}
+.btbl tr.preedit td{background:var(--paper2);border-bottom:1px dotted var(--line2);padding:10px 8px}
+.preed{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
+.preed .fl{font:500 10px/1.3 var(--label);letter-spacing:.13em;text-transform:uppercase;color:var(--soft)}
+.preed .sp{flex:1}
+.prebox{margin-bottom:24px}
+.prestats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:4px 0;border-top:1px dotted var(--line2);border-bottom:1px dotted var(--line2);padding:12px 0;margin-bottom:6px}
+.prestats>div{text-align:center}
+.prestats small{display:block;font:500 10.5px/1.3 var(--label);letter-spacing:.13em;text-transform:uppercase;color:var(--soft);margin-bottom:4px}
+.prestats b{font:400 26px/1.1 var(--serif);font-variant-numeric:lining-nums tabular-nums}
+.prestats .em b{color:var(--wine)}
+.prelist{display:flex;flex-direction:column}
+.prow2{display:grid;grid-template-columns:minmax(0,1fr) 150px 110px;gap:12px;align-items:baseline;padding:7px 2px;border-bottom:1px dotted var(--line)}
+.prow2:last-child{border-bottom:0}
+.prow2 .due{font:italic 500 15px/1.2 var(--serif);color:var(--soft);text-align:right}
+.prow2 .due.late{color:var(--wine);font-weight:600}
+.prow2 b{text-align:right;font-weight:500;font-variant-numeric:lining-nums tabular-nums}
+@media (max-width:860px){.btbl tr.preedit{display:block}.btbl tr.preedit td{display:block}.btbl tr.preedit td.ch{display:none}.prow2{grid-template-columns:minmax(0,1fr) auto;}.prow2 .due{grid-column:1/3;text-align:left}}
+/* ===== v18 budget ===== */
+.bsum{margin-bottom:24px}
+.bsum-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px 0}
+.bsum-grid>div{text-align:center;padding:4px 14px;border-left:1px solid var(--line);display:flex;flex-direction:column;align-items:center;gap:2px}
+.bsum-grid>div:first-child{border-left:0}
+.bsum-grid small{font:500 10.5px/1.3 var(--label);letter-spacing:.13em;text-transform:uppercase;color:var(--soft);margin-bottom:4px}
+.bsum-grid b{font:400 32px/1.1 var(--serif);font-variant-numeric:lining-nums tabular-nums}
+.bsum-grid .em b{color:var(--wine)}
+.bsum-grid .bar{width:150px}
+.pay .seg{flex-wrap:nowrap}
+.uplist{border-top:1px dotted var(--line2);margin-top:14px}
+.uprow{display:grid;grid-template-columns:26px minmax(0,1fr) 170px 110px;gap:10px;align-items:center;padding:7px 2px;border-bottom:1px dotted var(--line)}
+.uprow:last-child{border-bottom:0}
+.uprow .due{font:italic 500 15px/1.2 var(--serif);color:var(--soft);text-align:right}
+.uprow .due.late{color:var(--wine);font-weight:600}
+.uprow b.r{font-weight:500}
+.btbl .camt{width:170px}.btbl .cpay{width:200px}.btbl .cnext{width:200px}
+.btbl td.camt,.btbl td.cnext{vertical-align:top}
+.amtin{display:block;width:130px;margin-left:auto}
+.amtv{display:block;font-weight:500;font-size:16px;padding-top:6px;font-variant-numeric:lining-nums tabular-nums}
+.meth{display:block;font:italic 500 13.5px/1.2 var(--serif);color:var(--soft)}
+.schip{appearance:none;border:1px solid var(--line2);background:transparent;border-radius:999px;font-size:12px;padding:0 9px;line-height:1.7;color:var(--soft);cursor:pointer;margin-top:5px}
+.schip.ok{background:var(--sage2);color:var(--sage);border-color:transparent}
+.schip:hover{border-color:var(--mauve)}
+.paycell{padding-top:8px;display:flex;flex-direction:column;gap:5px;font-size:14px}
+.paycell .bar{max-width:170px}
+.paycell b{font-weight:500}
+.cnext{font-size:14.5px}
+.cnext b{display:block;font-weight:500;padding-top:6px}
+.cnext small{display:block;font:italic 500 13.5px/1.25 var(--serif);color:var(--soft)}
+.cnext small.late{color:var(--wine);font-weight:600}
+.paidok{display:inline-block;margin-top:8px;color:var(--sage);font-weight:500}
+.btbl tr.row.open td{background:var(--paper)}
+.btbl tr.bdetail td{background:var(--paper);border-bottom:1px solid var(--line2);padding:4px 8px 16px}
+.bdet{display:flex;flex-direction:column;gap:14px}
+.bd-sec{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px}
+.bd-sec .fl,.bd-h .fl{font:500 10px/1.3 var(--label);letter-spacing:.13em;text-transform:uppercase;color:var(--soft);min-width:150px}
+.bd-sec .how{flex-basis:100%;padding-left:164px}
+.bd-sec .how:empty{display:none}
+.bd-sec.pays{flex-direction:column;align-items:stretch;gap:6px}
+.bd-h{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.pay{display:grid;grid-template-columns:minmax(120px,1fr) 78px 112px 80px 150px 152px 98px 30px;gap:8px;align-items:center;padding:4px 0}
+.pay .pa{font-size:14px;color:var(--soft);white-space:nowrap}
+.pay .psel{width:100%}
+.pay .pd .in{height:32px;font-size:14px}
+.pay.isPaid .fld{text-decoration:line-through;color:var(--soft)}
+.bd-add{display:flex;gap:4px;flex-wrap:wrap}
+.bd-add .addlink{margin-left:0;margin-right:10px}
+.btbl tr.grp .gpaid{font-size:15px;white-space:nowrap}
+@media (max-width:860px){
+  .bd-sec .how{padding-left:0}
+  .pay{grid-template-columns:1fr 1fr;gap:6px;border-bottom:1px dotted var(--line2);padding:8px 0}
+  .btbl tr.bdetail{display:block}.btbl tr.bdetail td{display:block}.btbl tr.bdetail td.ch{display:none}
+  .uprow{grid-template-columns:26px minmax(0,1fr) auto}.uprow .due{grid-column:2/4;text-align:left}
+  .amtin{margin-left:0}
+}
+/* ===== v19 simple budget ===== */
+.b3 .cprice{width:170px}.b3 .cbefore{width:170px}.b3 .cpaid{width:150px}.b3 .cleft{width:150px}
+.b3 td.cprice,.b3 td.cbefore,.b3 td.cpaid,.b3 td.cleft{vertical-align:top}
+.b3 .cleft b{display:block;padding-top:8px;font-weight:500;font-size:16px}
+.tlink{appearance:none;border:0;background:none;padding:0;margin:4px 8px 0 0;font:italic 500 13.5px/1.3 var(--serif);color:var(--mauve);cursor:pointer}
+.tlink:hover{color:var(--wine);text-decoration:underline}
+.tlink.due{color:var(--ink2)}
+.tlink.due.late{color:var(--wine);font-weight:700}
+.qk{display:flex;flex-wrap:wrap;align-items:center;min-height:20px}
+.qk .in{height:30px;font-size:14px;margin-top:4px;width:150px}
+.tlink.hov{opacity:0;transition:opacity .12s}
+.b3 tr.row:hover .tlink.hov,.b3 tr.row:focus-within .tlink.hov{opacity:1}
+@media (hover:none){.tlink.hov{opacity:1}}
+.bhelp{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px 24px;margin:0 0 18px;padding:0 4px;color:var(--soft);font-size:14.5px}
+.bhelp b{color:var(--ink2);font-weight:600}
+.b3 tr.grp .gsum{font:600 17px/1 var(--serif);color:var(--wine)}
+.b3 tr.grp .gsub{font-size:14.5px;color:var(--ink2)}
+.uprow2{display:grid;grid-template-columns:minmax(0,1fr) 160px 110px 96px;gap:12px;align-items:center;padding:7px 2px;border-bottom:1px dotted var(--line)}
+.uprow2:last-child{border-bottom:0}
+.uprow2 .due{font:italic 500 15px/1.2 var(--serif);color:var(--soft);text-align:right}
+.uprow2 .due.late{color:var(--wine);font-weight:600}
+.uprow2 b.r{font-weight:500;text-align:right}
+@media (max-width:860px){.uprow2{grid-template-columns:minmax(0,1fr) auto}.uprow2 .due{text-align:left}.b3 .cprice,.b3 .cbefore,.b3 .cpaid,.b3 .cleft{width:auto}}
+/* ===== v20 budget ===== */
+.b4 .cfx{width:220px}.b4 .cfx .psel{width:100%}
+.b4 .cfx .how{margin-top:6px}.b4 .cfx .cbr{flex-wrap:nowrap;gap:6px}.b4 .cfx .cbr .psel{min-width:0;flex:1}
+.b4 .cfx .times{color:var(--soft);width:12px;text-align:center;flex:none}
+.b4 .cplan{width:110px}.b4 .cwhen{width:196px}.b4 .cwhen .psel{width:100%}
+.b4 .cleft{width:140px}
+.b4 td{vertical-align:top}
+.b4 .cleft b{display:block;padding-top:8px;font-weight:500;font-size:16px}
+.dep{display:flex;align-items:center;gap:6px;margin-top:6px;flex-wrap:nowrap}
+.dep .seg{flex:none;flex-wrap:nowrap}.depin{width:96px;flex:none}.depin .in{height:32px}
+.depeq{font-size:14px;color:var(--soft);white-space:nowrap}
+.meth.wine{color:var(--wine)}
+.bhelp2{display:flex;flex-wrap:wrap;gap:6px 22px;margin:0 0 16px;padding:0 4px;color:var(--soft);font-size:14px}
+.bhelp2 b{color:var(--ink2);font-weight:600}
+@media (max-width:860px){.b4 .cfx,.b4 .cplan,.b4 .cwhen,.b4 .cleft{width:auto}.dep{flex-wrap:wrap}}
+.weekend{padding:30px 30px 24px}
+.wkgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));gap:18px 32px;margin-top:18px}
+.wkday h4{font:500 11px/1.3 var(--label);letter-spacing:.14em;text-transform:uppercase;color:var(--wine);margin:0 0 8px;padding-bottom:6px;border-bottom:1px dotted var(--line2)}
+.wkday ol{list-style:none;margin:0;padding:0}
+.wkday li{display:grid;grid-template-columns:48px 1fr;gap:10px;padding:4px 0;font-size:15.5px;align-items:baseline}
+.wkday li b{font:500 13px/1 var(--label);color:var(--wine);letter-spacing:.04em}
+.ib.star.on{color:var(--gold)}
+.ib.star.on svg{fill:var(--gold)}
+.btbl tr.grp .fld{width:100%!important;min-width:0}
+.fxline{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;font:italic 500 14.5px/1.3 var(--serif);color:var(--ink2);padding:2px 4px}
+.fxline .tlink{margin:0}
+.b4 tr.row:hover .fxline .tlink.hov{opacity:1}
+/* ===== v23 menu page ===== */
+.subnav{position:sticky;top:calc(62px + env(safe-area-inset-top,0px));z-index:20;background:var(--bg);margin:0 -8px 22px;padding:10px 8px;border-bottom:1px solid var(--line)}
+.sn-in{display:flex;align-items:center;gap:12px 18px;flex-wrap:wrap}
+.sn-in .sp{flex:1}
+.sn-sum{display:flex;gap:18px;color:var(--soft);font-size:14.5px;white-space:nowrap}
+.sn-sum b{color:var(--wine);font-weight:600}
+.mbar{display:flex;flex-wrap:wrap;align-items:center;gap:10px 24px;margin:0 0 20px;padding:0 4px}
+.mb-sel{display:flex;align-items:center;gap:10px}
+.mb-sel select{min-width:240px}
+.mb-calc{font-size:15.5px;color:var(--ink2)}.mb-calc b{font-weight:600;color:var(--ink)}.mb-calc b.wine{color:var(--wine)}
+.mwork{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:28px;align-items:start}
+.mm{padding:34px 38px 26px}
+.mm,.catpanel{position:relative;border-color:var(--gold-l)!important;border-radius:3px!important;box-shadow:inset 0 0 0 5px var(--paper),inset 0 0 0 6px var(--gold-l),var(--sh2)!important}
+.mm::after,.catpanel::after{content:"";position:absolute;inset:9px;pointer-events:none;z-index:3;background:var(--c-tl) top left/30px no-repeat,var(--c-tr) top right/30px no-repeat,var(--c-bl) bottom left/30px no-repeat,var(--c-br) bottom right/30px no-repeat}
+.catpanel .cp-head{padding-top:20px}.catpanel .cp-foot{padding-bottom:18px}
+.cp-head,.cp-foot{border-color:var(--gold-l)!important;margin:0 6px}
+.mm-h{display:flex;justify-content:space-between;align-items:flex-end;gap:14px 24px;flex-wrap:wrap;padding-bottom:16px;margin-bottom:6px;border-bottom:1px solid var(--line)}
+.mm-title{font-size:46px;line-height:1;color:var(--wine)}
+.mm-meta{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.mm-price{display:flex;align-items:center;gap:10px}
+.mm-row{display:grid;grid-template-columns:140px minmax(0,1fr);gap:16px;padding:14px 0;border-bottom:1px dotted var(--line2)}
+.mm-row:last-of-type{border-bottom:0}
+.mm-lab{font:500 10.5px/1.3 var(--label);letter-spacing:.14em;text-transform:uppercase;color:var(--gold);padding-top:7px}
+.mm-items{min-width:0}
+.mm-sub{margin-top:10px;padding-left:14px;border-left:2px solid var(--line)}
+.mm-sublab{font:500 10px/1.3 var(--label);letter-spacing:.13em;text-transform:uppercase;color:var(--soft);margin:2px 0 2px}
+.mm-foot{margin:14px 0 0;text-align:center}
+.mm .mi{padding:2px 0}
+.mm .addlink{margin-left:16px}
+.mm .madd{margin:4px 0 2px}
+.catpanel{position:sticky;top:calc(62px + 62px + 14px + env(safe-area-inset-top,0px));max-height:calc(100vh - 160px);display:flex;flex-direction:column;background:var(--paper);border:1px solid var(--line);border-radius:6px;box-shadow:var(--sh2);overflow:hidden;padding:0}
+.cp-head{padding:14px 18px 10px;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:10px;align-items:center}
+.cp-head .fl{font:500 10px/1.3 var(--label);letter-spacing:.14em;text-transform:uppercase;color:var(--soft)}
+.cp-head .pager{width:100%;margin:0}
+.pg-mid{display:flex;flex-direction:column;align-items:center;text-align:center;min-width:0}
+.pg-mid b{font:600 17px/1.2 var(--caps);letter-spacing:.12em;text-transform:uppercase;color:var(--wine)}
+.pg-mid span{font:italic 500 14.5px/1.3 var(--serif);color:var(--soft)}
+.cp-body{overflow:auto;overscroll-behavior:contain;padding:6px 20px 14px;flex:1;min-height:0;scrollbar-width:thin;scrollbar-color:var(--line2) transparent}
+.cp-body .course>h4{text-align:left;margin-top:8px}
+.cp-foot{border-top:1px solid var(--line);padding:12px 16px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+@media (max-width:1180px){.mwork{grid-template-columns:minmax(0,1fr)}.catpanel{position:static;max-height:none}.cp-body{overflow:visible}}
+@media (max-width:860px){.mm{padding:22px 18px}.mm-row{grid-template-columns:1fr;gap:4px}.mm-lab{padding-top:0}.sn-sum{display:none}.subnav{overflow-x:auto}}
 </style>
 </head>
 <body>
@@ -728,6 +898,7 @@ const IC={
   minus:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 8h8"/></svg>',
   pen:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 2.5l3 3L6 13H3v-3z"/></svg>',
   strike:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><path d="M2.5 8h11"/><path d="M11 4.6C10.6 3.4 9.4 2.8 8 2.8c-1.7 0-3 .9-3 2.2 0 .8.5 1.4 1.4 1.8M5 11.2c.3 1.2 1.6 2 3.1 2 1.8 0 3-.9 3-2.2 0-.4-.1-.8-.4-1.1"/></svg>',
+  star:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"><path d="M8 1.8l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 11.6l-3.8 2 .7-4.3-3.1-3 4.3-.6z"/></svg>',
   swap:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h9l-2.5-2.5M13 11H4l2.5 2.5"/></svg>',
   empty:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="8" cy="8" r="5.5"/><path d="M4.2 11.8l7.6-7.6"/></svg>',
   img:'<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"><rect x="2" y="3" width="12" height="10" rx="1.5"/><circle cx="6" cy="6.5" r="1.2"/><path d="M2.5 12l3.5-3.5 3 3 2-2 2.5 2.5"/></svg>',
@@ -969,7 +1140,7 @@ function seed(){
   const ins=SEED_IMGS.map((s,i)=>({id:'seed'+i,seed:i,title:s.title,cat:catMap[s.cat]||'Ostalo',fav:false,note:''}));
   const MI=(course,text,src='Moja ideja')=>({id:uid(),course,text,src,note:'',time:''});
   return {
-    v:11,updatedAt:0,
+    v:16,updatedAt:0,
     plans:[{id:'p1',name:'Opcija 1',data:null}],activePlan:'p1',
     rucak:{price:20,extra:0,time:'13:00',place:'',items:items(['Lagani meni za goste koji ostaju','Rođendanska torta'])},
     settings:{couple:'Stella & Bruno',date:'2027-10-09',time:'15:30',place:'Park Boutique Hotel i crkva sv. Nikole'},
@@ -1001,6 +1172,26 @@ function migrate(s){
   if(s.v<9)s=migrateV9(s);
   if(s.v<10){const cm={pozivnice:'Pozivnice',crkva:'Crkva',lokacija:'Lokacija'};for(let i=7;i<SEED_IMGS.length;i++){if(!s.inspo.items.some(x=>x.seed===i))s.inspo.items.push({id:'seed'+i,seed:i,title:SEED_IMGS[i].title,cat:cm[SEED_IMGS[i].cat]||'Ostalo',fav:false,note:''})}s.v=10}
   if(s.v<11){for(const x of (s.hotel.myMenu||[]))x.course=mapCourse(x.course,x.text);s.v=11}
+  if(s.v<12){for(const r of s.budget)if(!r.pre)r.pre={mode:'none',val:0,due:''};s.v=12}
+  if(s.v<13){for(const r of s.budget){
+    if(r.status===undefined){r.status=num(r.actual)>0?'dogovoreno':'procjena';if(num(r.actual)>0){r.mode='fixed';r.est=num(r.actual)}}
+    if(!Array.isArray(r.pays)){r.pays=[];let paid=num(r.paid);const pre=r.pre||{};
+      if(pre.mode&&pre.mode!=='none'){const p={id:uid(),label:'Kapara',mode:pre.mode==='amount'?'amount':'pct',val:pre.mode==='full'?100:num(pre.val),when:'prije',due:pre.due||'',paid:false};
+        const amt=pre.mode==='amount'?num(pre.val):(num(r.est)*(pre.mode==='full'?100:num(pre.val))/100);if(paid>=amt&&amt>0){p.paid=true;p.mode='amount';p.val=Math.round(amt*100)/100;paid-=amt}r.pays.push(p)}
+      if(paid>0)r.pays.push({id:uid(),label:'Plaćeno',mode:'amount',val:paid,when:'prije',due:'',paid:true})}
+  }s.v=13}
+  if(s.v<14){const map=(q,p)=>q==='gosti'&&p==='meni_po_osobi'?'meni':q==='gosti'&&p==='finger_po_osobi'?'finger':q==='rucak_gosti'&&p==='rucak_po_osobi'?'rucak':null;
+    for(const r of s.budget){
+      if(r.mode==='calc'){const t=map(r.q,r.p);if(t){r.mode='plan';r.t=t}else{r.mode='fixed';if(r.q==='n'&&r.p==='n')r.est=num(r.qn)*num(r.pn)}}
+      if(r.before===undefined){r.before=0;r.beforeDue='';r._v14=true}
+    }s.v=14}
+  if(s.v<15){const back={meni:['gosti','meni_po_osobi'],finger:['gosti','finger_po_osobi'],rucak:['rucak_gosti','rucak_po_osobi']};
+    for(const r of s.budget){if(r.mode==='plan'&&back[r.t]){r.mode='calc';r.q=back[r.t][0];r.p=back[r.t][1]}
+      if(r.payWhen===undefined){r.payWhen='poslije';r.depMode='pct';r.depVal=30;r._v15=true}}
+    s.v=15}
+  if(s.v<16){const KW=/check-in|check-out|prijem|misa|vjenčanj|ceremonij|ulazak u salu|prvi ples|party|torta|(?<!do)ručak|pozdrav|odlazak|doček/i;const seen=new Set();for(const t of s.timeline)if(t.key===undefined){const k=t.day+'|'+String(t.text).trim().toLowerCase();t.key=KW.test(t.text||'')&&!/poziv/i.test(t.text||'')&&!seen.has(k);if(t.key)seen.add(k)}
+    for(const d of ['fri','sat','sun']){const l=s.timeline.filter(t=>t.day===d);if(l.length&&!l.some(t=>t.key))l[0].key=true}
+    s.v=16}
   for(const k of Object.keys(d))if(s[k]===undefined)s[k]=d[k];
   s.hotel=Object.assign({},d.hotel,s.hotel);
   s.rooms=Object.assign({},d.rooms,s.rooms);
@@ -1107,7 +1298,7 @@ function migrateV3(s,d){
 const LS='sb-wedding-planner-v1';
 let state;
 try{const raw=localStorage.getItem(LS);state=raw?migrate(JSON.parse(raw)):migrate(JSON.parse(JSON.stringify(PREFILL)))}catch(e){console.error(e);state=seed()}
-const ui={noteEdit:null,catIdx:{},expSec:'sve',editItem:null,selI:null,addOpen:null,editDue:null,tFilter:'all',tab:'pregled',menuView:'meni',open:new Set(),g:{side:'all',rsvp:'all',q:''},hideDone:false,dFilter:'all',iFilter:'Sve',selG:null,selT:null,selSeat:null,zoom:null,zCur:1,seatView:'plan',poolQ:'',roomQ:'',lastFx:null};
+const ui={fxEdit:null,linkOpen:null,dueOpen:null,bOpen:null,preOpen:null,noteEdit:null,catIdx:{},expSec:'sve',editItem:null,selI:null,addOpen:null,editDue:null,tFilter:'all',tab:'pregled',menuView:'meni',open:new Set(),g:{side:'all',rsvp:'all',q:''},hideDone:false,dFilter:'all',iFilter:'Sve',selG:null,selT:null,selSeat:null,zoom:null,zCur:1,seatView:'plan',poolQ:'',roomQ:'',lastFx:null};
 try{const t=localStorage.getItem(LS+'-tab');if(t&&(t==='pregled'||TABS.some(x=>x[0]===t)))ui.tab=t;const u=JSON.parse(localStorage.getItem(LS+'-ui')||'{}');ui.hideDone=!!u.hideDone}catch(e){}
 const cloud={ref:null,writing:false,pending:false};
 let saveT;
@@ -1129,7 +1320,7 @@ async function initCloud(){
     cloud.ref=db.doc('data/users/'+id+'/planner');
     const snap=await cloud.ref.get();const d=snap.exists?snap.data():null;
     if(d&&d.json&&(d.updatedAt||0)>(state.updatedAt||0)){
-      const raw=JSON.parse(d.json);const before=raw.v||1;state=migrate(raw);ensureFeed();
+      const raw=JSON.parse(d.json);const before=raw.v||1;state=migrate(raw);postMigrate();ensureFeed();
       try{localStorage.setItem(LS,JSON.stringify(state))}catch(e){}
       render();if(before<3)save();else setStatus('Spremljeno');
     }else if((state.updatedAt||0)>0||!d){await pushCloud()}else setStatus('Spremljeno');
@@ -1208,8 +1399,20 @@ function rowEst(r){
   return num(r.est);
 }
 const rowExp=r=>num(r.actual)>0?num(r.actual):rowEst(r);
-const rowLeft=r=>Math.max(0,rowExp(r)-num(r.paid));
-function bTot(f){let p=0,e=0,paid=0,left=0;for(const r of state.budget){if(f&&!f(r))continue;p+=rowEst(r);e+=rowExp(r);paid+=num(r.paid);left+=rowLeft(r)}return {p,e,paid,left}}
+const rowPaid=r=>num(r.paid);
+const rowLeft=r=>Math.max(0,rowExp(r)-rowPaid(r));
+const PAYWHEN={prije:'Prije vjenčanja',kapara:'Kapara, ostatak nakon',poslije:'Nakon vjenčanja'};
+function rowBeforeAmt(r){const w=r.payWhen||'poslije',e=rowExp(r);if(w==='prije')return e;if(w==='kapara')return Math.min(e,r.depMode==='amount'?num(r.depVal):e*Math.min(100,Math.max(0,num(r.depVal)))/100);return 0}
+const rowPreLeft=r=>Math.max(0,rowBeforeAmt(r)-rowPaid(r));
+const rowAfter=r=>Math.max(0,rowExp(r)-Math.max(rowPaid(r),rowBeforeAmt(r)));
+function preTot(){let paid=0,left=0,after=0;for(const r of state.budget){paid+=rowPaid(r);left+=rowPreLeft(r);after+=rowAfter(r)}return {paid,left,after}}
+function upcoming(){return state.budget.filter(r=>rowPreLeft(r)>0.5).sort((a,b)=>(a.beforeDue||'9999').localeCompare(b.beforeDue||'9999'))}
+function postMigrate(){if(!state||!state.budget)return;for(const r of state.budget){if(r._v14)postV14(r);if(r._v15){delete r._v15;const b=num(r.before),e=rowExp(r);if(b>0){if(b>=e-0.5)r.payWhen='prije';else{r.payWhen='kapara';r.depMode='amount';r.depVal=Math.round(b*100)/100}}}}}
+function postV14(r){{delete r._v14;const ps=r.pays||[];
+  if(ps.length){const amt=(p)=>p.mode==='pct'?rowEst(r)*Math.min(100,num(p.val))/100:num(p.val);r.paid=Math.round(ps.reduce((a,p)=>a+(p.paid?amt(p):0),0)*100)/100;
+    const pre=ps.filter(p=>(p.when||'prije')==='prije');r.before=Math.round(pre.reduce((a,p)=>a+amt(p),0)*100)/100;r.beforeDue=pre.map(p=>p.due).filter(Boolean).sort()[0]||''}
+  else r.paid=num(r.paid)}}
+function bTot(f){let p=0,e=0,paid=0,left=0,pre=0,after=0;for(const r of state.budget){if(f&&!f(r))continue;p+=rowEst(r);e+=rowExp(r);paid+=rowPaid(r);left+=rowLeft(r);pre+=rowPreLeft(r);after+=rowAfter(r)}return {p,e,paid,left,pre,after}}
 function gStats(){
   const s={total:0,S:0,B:0,R:0,V:0,dolazi:0,ceka:0,ne:0,beba:0,diet:[],parked:0};
   for(const p of state.parties)for(const m of p.members){
@@ -1233,6 +1436,8 @@ const seatable=(p,m)=>!p.parked&&p.side!=='V'&&p.rsvp!=='ne'&&m.age!=='beba';
 const CALC={
   bP:()=>eur(bTot().p),bE:()=>eur(bTot().e),bPaid:()=>eur(bTot().paid),bLeft:()=>eur(bTot().left),
   bBar:()=>{const t=bTot();return Math.min(100,t.e?t.paid/t.e*100:0)},
+  preL:()=>eur(preTot().left),preA:()=>eur(preTot().after),catPaid:id=>eur(bTot(r=>r.cat===id).paid),catE:id=>eur(bTot(r=>r.cat===id).e),rowDep:id=>{const r=state.budget.find(x=>x.id===id);return r?eur(rowBeforeAmt(r)):''},catLeft:id=>eur(bTot(r=>r.cat===id).left),catPre:id=>eur(bTot(r=>r.cat===id).pre),rowPreLeft:id=>{const r=state.budget.find(x=>x.id===id);return r?eur(rowPreLeft(r)):''},
+  payAmt:k=>{const [rid,pid]=k.split(':');const r=state.budget.find(x=>x.id===rid);const p=r&&(r.pays||[]).find(x=>x.id===pid);return p?eur(payAmt(r,p)):''},
   catP:id=>eur(bTot(r=>r.cat===id).p),
   rowEst:id=>eur(rowEst(state.budget.find(r=>r.id===id))),rowLeft:id=>eur(rowLeft(state.budget.find(r=>r.id===id)||{})),
   rowFx:id=>{const r=state.budget.find(x=>x.id===id);const o=evalFx(r&&r.formula,fxVars());return o.err||''},
@@ -1245,6 +1450,7 @@ const CALC={
   rUsed:()=>state.rooms.list.filter(r=>!roomCalc(r).empty).length+' / '+state.rooms.list.length
 };
 function softUpdate(){
+  for(const el of $$('[data-calch]')){if(el.dataset.calch==='leftCell')el.innerHTML=leftCell(el.dataset.arg)}
   for(const el of $$('[data-calc]')){const f=CALC[el.dataset.calc];if(!f)continue;const v=f(el.dataset.arg);
     if(el.dataset.calc==='bBar')el.style.width=v+'%';
     else if(el.dataset.calc==='rowFx'){el.textContent=v;el.className=v?'fx-err':'fx-ok'}
@@ -1282,7 +1488,7 @@ V.pregled=()=>{
   const seated=state.parties.reduce((a,p)=>a+p.members.filter(m=>seatable(p,m)&&m.table).length,0);
   const roomsUsed=state.rooms.list.filter(r=>!roomCalc(r).empty).length;
   const [y,m,d]=state.settings.date.split('-').map(Number);
-  const chapters=state.timeline.filter(x=>x.day==='sat'&&x.time).sort((a,b)=>(a.time<'06:00'?'2'+a.time:a.time).localeCompare(b.time<'06:00'?'2'+b.time:b.time));
+  const wk=Object.entries(DAYS).map(([k,n])=>[k,n,state.timeline.filter(x=>x.day===k&&x.key)]);
   const pct=(a,b)=>b?Math.round(a/b*100):0;
   return `
   <section class="hero" id="hero">
@@ -1309,13 +1515,13 @@ V.pregled=()=>{
       <button class="frame tile" data-a="tab" data-v="sjedenje" style="cursor:pointer;font:inherit;color:inherit">
         <h3>Stolovi</h3><div class="big">${seated}</div><div class="sub" style="margin-top:-4px">${esc((state.plans.find(p=>p.id===state.activePlan)||{}).name||'')}</div><div class="sub">od ${seatN} gostiju ima mjesto</div><div class="bar"><i style="width:${pct(seated,seatN)}%"></i></div><div class="sub">${state.tables.length} stolova</div></button>
     </div>
-    <div class="grid g2">
-      <section class="card band chapters" style="text-align:center">
-        <h3>Poglavlja dana</h3>
-        <div class="orn" style="margin-top:10px">${ORN}</div>
-        <ol>${chapters.map(c=>`<li><b>${esc(c.time)}</b><i>✦</i><span style="text-align:left">${esc(c.text)}</span></li>`).join('')||'<li><span></span><span></span><span class="muted it">Upiši vremena u Tijek dana.</span></li>'}</ol>
-      </section>
-      <section class="card">
+    <section class="card band weekend">
+      <div style="text-align:center"><h3>Naš vikend</h3><div class="orn" style="margin-top:10px">${ORN}</div></div>
+      <div class="wkgrid">${wk.map(([k,n,items])=>`<div class="wkday"><h4>${esc(n)}</h4>${items.length?`<ol>${items.map(c=>`<li>${c.time?`<b>${esc(c.time)}</b>`:'<b></b>'}<span>${esc(c.text)}</span></li>`).join('')}</ol>`:'<p class="muted it small">Nema istaknutih stavki.</p>'}</div>`).join('')}</div>
+      <p class="muted it small" style="text-align:center;margin:14px 0 0">Prikazane su samo stavke označene zvjezdicom u <button class="link" data-a="tab" data-v="tijek" style="font-size:10px">Tijeku dana</button>.</p>
+    </section>
+    <div class="grid g2" style="margin-top:24px">
+      <section class="card" style="grid-column:1/-1">
         <div class="card-h" style="margin-bottom:8px"><h3>Sljedeći koraci</h3><span class="muted it small">${t.d} od ${t.t} gotovo</span></div>
         ${next.map(i=>`<div class="mini-task">${chk('i',i.id,'done',i.done,esc(i.text))}</div>`).join('')||'<p class="muted it">Sve je gotovo. Bravo!</p>'}
         <h3 style="margin:22px 0 10px">Još razmišljam</h3>
@@ -1333,47 +1539,73 @@ function tickCountdown(){
 }
 
 /* ---------- budget ---------- */
+function fmtDue(d){if(!d)return '';const [y,m,dd]=d.split('-');return `${+dd}. ${+m}. ${y}.`}
+function leftCell(id){const r=state.budget.find(x=>x.id===id);if(!r)return '';const e=rowExp(r),left=rowLeft(r),pl=rowPreLeft(r);
+  if(e>0&&left<0.5)return '<span class="paidok">✓ plaćeno</span>';
+  return `<b class="tnum">${eur(left)}</b>${pl>0.5?`<small class="meth wine">još prije vjenčanja ${eur(pl)}</small>`:''}`}
+const FX_PRESETS={meni:'Gosti × cijena menija',finger:'Gosti × finger food po osobi',rucak:'Gosti na ručku × cijena ručka',smjestaj:'Sobe koje plaćamo (iz Soba)',torte:'Torte (iz Menija)',kolaci:'Kolači i deserti (iz Menija)',pice:'Piće, procjena (iz Menija)',custom:'Količina × cijena (upisujem oba broja)'};
+function fxPreset(r){if(r.mode==='plan')return r.t==='meni'?'meni':r.t;if(r.mode==='calc'){if(r.q==='gosti'&&r.p==='meni_po_osobi')return 'meni';if(r.q==='gosti'&&r.p==='finger_po_osobi')return 'finger';if(r.q==='rucak_gosti'&&r.p==='rucak_po_osobi')return 'rucak';return 'custom'}return null}
+function fxGuess(name){const n=String(name||'').toLowerCase();if(/sob|smješt|smjest/.test(n))return 'smjestaj';if(/ručak|rucak/.test(n))return 'rucak';if(/finger/.test(n))return 'finger';if(/večer|vecer|meni/.test(n))return 'meni';if(/tort/.test(n))return 'torte';if(/kolač|kolac|desert/.test(n))return 'kolaci';if(/piće|pice|pića/.test(n))return 'pice';return 'custom'}
+function applyFx(r,k){const amt=Math.round(rowEst(r));
+  if(k==='meni'){r.mode='calc';r.q='gosti';r.p='meni_po_osobi'}
+  else if(k==='finger'){r.mode='calc';r.q='gosti';r.p='finger_po_osobi'}
+  else if(k==='rucak'){r.mode='calc';r.q='rucak_gosti';r.p='rucak_po_osobi'}
+  else if(k==='custom'){if(!(r.mode==='calc'&&r.q==='n'&&r.p==='n')){r.mode='calc';r.q='n';r.p='n';r.qn=1;r.pn=amt}}
+  else{r.mode='plan';r.t=k}}
+function fxText(r){const v=fxVars();
+  if(r.mode==='plan')return {smjestaj:'iz Soba',torte:'iz Menija, torte',kolaci:'iz Menija, kolači',pice:'iz Menija, piće',meni:'iz Menija',finger:'iz Menija, finger food',rucak:'iz Ručka'}[r.t]||'iz plana';
+  const q=r.q==='n'?num(r.qn):num(v[r.q]);const p=r.p==='n'?num(r.pn):num(v[r.p]);
+  const qn={gosti:' gostiju',rucak_gosti:' na ručku',pozvani:' pozvanih',dolaze:' gostiju',sobe:' soba',nocenja:' noćenja',stolovi:' stolova'}[r.q]||'';
+  return `${fnum(q)||0}${qn} × ${eur2(p).replace(',00','')}`}
 function budgetRow(r){
-  const v=fxVars();const lab=(src,k)=>src[k]+(k!=='n'?' ('+(fnum(Math.round(num(v[k])*100)/100)||'0')+(PSRC[k]?' €':'')+')':'');
-  let how;
-  if(r.mode==='calc')how=`<div class="calcb">
-      <div class="cbr"><span class="cbl">Količina</span><select class="psel" data-c="b" data-id="${r.id}" data-f="q" aria-label="Količina">${Object.keys(QSRC).map(k=>`<option value="${k}"${r.q===k?' selected':''}>${esc(lab(QSRC,k))}</option>`).join('')}</select>${r.q==='n'?`<span class="cbn">${unit('b',r.id,'qn',r.qn,'kom',{label:'Broj'})}</span>`:''}</div>
-      <div class="cbr"><span class="cbl">× Cijena</span><select class="psel" data-c="b" data-id="${r.id}" data-f="p" aria-label="Cijena">${Object.keys(PSRC).map(k=>`<option value="${k}"${r.p===k?' selected':''}>${esc(lab(PSRC,k))}</option>`).join('')}</select>${r.p==='n'?`<span class="cbn">${money('b',r.id,'pn',r.pn,{label:'Cijena'})}</span>`:''}</div></div>`;
-  else if(r.mode==='plan')how=`<select class="psel" data-c="b" data-id="${r.id}" data-f="t" aria-label="Iznos iz plana">${Object.keys(TSRC).map(k=>`<option value="${k}"${r.t===k?' selected':''}>${esc(TSRC[k])}</option>`).join('')}</select><div class="muted it small" style="margin-top:4px">prati se automatski</div>`;
-  else how='';
+  const isFx=r.mode!=='fixed';let how='';
+  if(isFx){const k=fxPreset(r);
+    if(ui.fxEdit===r.id){how=`<select class="psel" data-ac="bPreset" data-id="${r.id}" aria-label="Formula" style="width:100%">${Object.entries(FX_PRESETS).map(([key,lbl])=>`<option value="${key}"${key===k?' selected':''}>${esc(lbl)}</option>`).join('')}</select>
+      ${k==='custom'?`<div class="cbr" style="margin-top:6px"><span class="cbn" style="width:84px">${unit('b',r.id,'qn',r.qn,'×',{label:'Količina'})}</span><span class="times">×</span><span class="cbn" style="width:110px">${money('b',r.id,'pn',r.pn,{label:'Cijena'})}</span></div>`:''}
+      <button class="tlink" data-a="fxEdit" data-id="${r.id}">gotovo</button>`}
+    else how=`<div class="fxline"><span>${esc(fxText(r))}</span><button class="tlink hov" data-a="fxEdit" data-id="${r.id}">uredi</button></div>`}
+  const w=r.payWhen||'poslije';const today=new Date().toISOString().slice(0,10);
+  const due=(w!=='poslije')?(ui.dueOpen===r.id?inp('b',r.id,'beforeDue',r.beforeDue,{type:'date',box:1,label:'Rok'}):r.beforeDue?`<button class="tlink due${rowPreLeft(r)>0.5&&r.beforeDue<today?' late':''}" data-a="bDue" data-id="${r.id}">do ${fmtDue(r.beforeDue)}</button>`:`<button class="tlink hov" data-a="bDue" data-id="${r.id}">+ rok</button>`):'';
   return `<tr class="row" data-sid="${r.id}">
     <td class="ch" style="width:34px">${handle()}</td>
     <td class="cname" data-l="Stavka">${inp('b',r.id,'name',r.name,{ph:'Naziv stavke',style:'font-weight:500'})}${inp('b',r.id,'note',r.note,{ph:'Dodaj napomenu',cls:'note'})}</td>
-    <td class="cfx" data-l="Izračun">${seg('bmode',r.mode,{fixed:'Iznos',calc:'Količina × cijena',plan:'Iz plana'},{sm:1,id:r.id,label:'Kako se računa'})}<div class="how">${how}</div></td>
+    <td class="cfx" data-l="Izračun"><select class="psel" data-ac="bMethod" data-id="${r.id}" aria-label="Kako se računa" style="width:100%"><option value="fixed"${isFx?'':' selected'}>Upisujem iznos</option><option value="formula"${isFx?' selected':''}>Formula</option></select>${how?`<div class="how">${how}</div>`:''}</td>
     <td class="cplan r" data-l="Planirano">${r.mode==='fixed'?money('b',r.id,'est',r.est,{label:'Planirano'}):`<div class="calcv"><span data-calc="rowEst" data-arg="${r.id}">${CALC.rowEst(r.id)}</span></div>`}</td>
     <td class="cmon" data-l="Ugovoreno">${money('b',r.id,'actual',r.actual,{label:'Ugovoreno',ph:''})}</td>
+    <td class="cwhen" data-l="Plaćanje">${sel('b',r.id,'payWhen',w,PAYWHEN,{label:'Kada se plaća',pill:1,cls:w==='prije'?'p-wine':w==='kapara'?'p-apr':'p-sage'})}
+      ${w==='kapara'?`<div class="dep">${seg('depMode',r.depMode==='amount'?'amount':'pct',{pct:'%',amount:'€'},{sm:1,id:r.id,label:'Kapara u postotku ili iznosu'})}<span class="depin">${r.depMode==='amount'?money('b',r.id,'depVal',r.depVal,{label:'Kapara'}):unit('b',r.id,'depVal',r.depVal,'%',{label:'Kapara'})}</span>${r.depMode!=='amount'?`<span class="depeq">= <span data-calc="rowDep" data-arg="${r.id}">${CALC.rowDep(r.id)}</span></span>`:''}</div>`:''}
+      ${due?`<div class="qk">${due}</div>`:''}</td>
     <td class="cmon" data-l="Plaćeno">${money('b',r.id,'paid',r.paid,{label:'Plaćeno',ph:''})}</td>
-    <td class="r cleft" data-l="Preostalo" style="width:100px;padding-top:14px">${calc('rowLeft',r.id,'tnum')}</td>
+    <td class="cleft r" data-l="Preostalo" data-calch="leftCell" data-arg="${r.id}">${leftCell(r.id)}</td>
     <td class="cdel" style="width:34px">${del('b',r.id)}</td>
   </tr>`;
 }
 V.budzet=()=>{
-  const vars=fxVars();
+  const up=upcoming();const today=new Date().toISOString().slice(0,10);
   const groups=state.budgetCats.map(c=>{const rows=state.budget.filter(r=>r.cat===c.id);return `<tbody data-sort="b" data-cat="${c.id}" data-sid="${c.id}">
-    <tr class="grp"><td class="ch">${handle('Premjesti kategoriju')}</td><td colspan="2">${inp('bc',c.id,'name',c.name,{label:'Naziv kategorije'})}</td><td class="r muted it gsum">${calc('catP',c.id)}</td><td colspan="3"></td><td>${rows.length?'':del('bc',c.id,'Obriši kategoriju')}</td></tr>
+    <tr class="grp"><td class="ch">${handle('Premjesti kategoriju')}</td><td colspan="2">${inp('bc',c.id,'name',c.name,{label:'Naziv kategorije'})}</td><td class="r gsum">${calc('catP',c.id)}</td><td></td><td></td><td class="gsub">${calc('catPaid',c.id)}</td><td class="r gsub">${calc('catLeft',c.id)}</td><td>${rows.length?'':del('bc',c.id,'Obriši kategoriju')}</td></tr>
     ${rows.map(budgetRow).join('')}
-    <tr class="addrow"><td class="ch"></td><td colspan="7"><button class="btn ghost sm" data-a="addBudget" data-v="${c.id}">${IC.plus} Dodaj stavku</button></td></tr>
+    <tr class="addrow"><td class="ch"></td><td colspan="8"><button class="btn ghost sm" data-a="addBudget" data-v="${c.id}">${IC.plus} Dodaj stavku</button></td></tr>
   </tbody>`}).join('');
   return `<div class="wrap">${header('Budžet','Plan, ugovoreno i plaćeno, po kategorijama koje možeš premještati.')}
-  <section class="card stats">
-    <div><small>Planirano</small><b>${calc('bP')}</b></div>
-    <div class="em"><small>Očekivano ukupno</small><b>${calc('bE')}</b></div>
-    <div><small>Plaćeno</small><b>${calc('bPaid')}</b></div>
-    <div><small>Još za platiti</small><b>${calc('bLeft')}</b><div class="bar" style="margin:10px auto 0;max-width:160px"><i data-calc="bBar" style="width:${CALC.bBar()}%"></i></div></div>
+  <section class="card bsum">
+    <div class="bsum-grid">
+      <div><small>Ukupno</small><b>${calc('bE')}</b><span class="muted it small">planirano ${calc('bP')}</span></div>
+      <div><small>Plaćeno</small><b>${calc('bPaid')}</b><div class="bar" style="margin:8px auto 0"><i data-calc="bBar" style="width:${CALC.bBar()}%"></i></div></div>
+      <div class="em"><small>Još prije vjenčanja</small><b>${calc('preL')}</b></div>
+      <div><small>Nakon vjenčanja</small><b>${calc('preA')}</b></div>
+    </div>
+    ${up.length?`<div class="uplist"><h3 style="margin:18px 0 6px">Prije vjenčanja još platiti</h3>${up.map(r=>`<div class="uprow2"><span class="ell"><b>${esc(r.name||'Stavka')}</b> <span class="muted small">${esc(PAYWHEN[r.payWhen]||'')}</span></span><span class="due${r.beforeDue&&r.beforeDue<today?' late':''}">${r.beforeDue?'do '+fmtDue(r.beforeDue):'bez roka'}</span><b class="r">${eur(rowPreLeft(r))}</b><button class="btn ghost sm" data-a="bPayPre" data-id="${r.id}">Plaćeno</button></div>`).join('')}</div>`:''}
   </section>
-  <div class="toolbar"><p class="muted it" style="margin:0;flex:1;min-width:260px">Za svaku stavku biraš: <b>upišem iznos</b>, <b>količina × cijena</b> (npr. gosti na ručku × 20 €) ili <b>iz plana</b> (npr. sobe koje plaćamo). Brojke se same osvježavaju.</p><button class="btn ghost" data-a="addBCat">${IC.plus} Nova kategorija</button></div>
+  <div class="bhelp2"><span><b>Izračun:</b> upiši iznos ili koristi formulu koja se sama računa (npr. gosti × cijena menija).</span><span><b>Planirano</b> je tvoja procjena.</span><span><b>Ugovoreno</b> upiši kad dobiješ ponudu, tada se ono koristi umjesto procjene.</span><span><b>Plaćanje</b> određuje plaća li se prije vjenčanja, nakon, ili kapara prije pa ostatak nakon.</span></div>
   <section class="card" style="padding:4px 18px 18px">
-    <div class="scroll"><table class="tbl btbl" data-sort="bc">
-      <thead><tr><th></th><th>Stavka</th><th>Izračun</th><th class="r">Planirano</th><th class="r">Ugovoreno</th><th class="r">Plaćeno</th><th class="r">Preostalo</th><th></th></tr></thead>
+    <div class="scroll"><table class="tbl btbl b4" data-sort="bc">
+      <thead><tr><th></th><th>Stavka</th><th>Izračun</th><th class="r">Planirano</th><th class="r">Ugovoreno</th><th>Plaćanje</th><th class="r">Plaćeno</th><th class="r">Preostalo</th><th></th></tr></thead>
       ${groups}
-      <tfoot><tr><td class="ch"></td><td colspan="2">Ukupno</td><td class="r">${calc('bP')}</td><td class="r">${calc('bE')}</td><td class="r">${calc('bPaid')}</td><td class="r">${calc('bLeft')}</td><td></td></tr></tfoot>
+      <tfoot><tr><td class="ch"></td><td colspan="2">Ukupno</td><td class="r">${calc('bP')}</td><td class="r">${calc('bE')}</td><td>${calc('preL')} još prije</td><td class="r">${calc('bPaid')}</td><td class="r">${calc('bLeft')}</td><td></td></tr></tfoot>
     </table></div>
-  </section></div>`;
+  </section>
+  <div class="toolbar" style="margin-top:16px"><span class="sp"></span><button class="btn ghost" data-a="addBCat">${IC.plus} Nova kategorija</button></div></div>`;
 };
 
 /* ---------- menu ---------- */
@@ -1407,80 +1639,86 @@ function addCtl(key,listId,options,empty){
   return `<div class="madd"><input class="in" list="${listId}" data-addkey="${esc(key)}" placeholder="Odaberi ili upiši…" aria-label="Dodaj"><button class="btn ghost sm" data-a="addFromKey" data-v="${esc(key)}">Dodaj</button>
     <datalist id="${listId}">${options}</datalist></div>`;
 }
-function myCourseBlock(c,ci,sub){const h=state.hotel;const list=h.myMenu.filter(x=>x.course===c);
-  return `<div class="mycourse${sub?' sub':''}" data-course-drop="${esc(c)}">
-    ${sub?`<h5>${c}</h5>`:`<h4>${c}</h4>`}
-    ${list.map(x=>myItemHtml(x,c,'my')).join('')}
-    ${addCtl('my:'+c,'dl'+ci,courseDishes(c).map(([s,d])=>`<option value="${esc(d)}">${esc(s)}</option>`).join(''),!list.length)}
-  </div>`}
+function mmItems(c,ci){const list=state.hotel.myMenu.filter(x=>x.course===c);
+  return `${list.map(x=>myItemHtml(x,c,'my')).join('')}${addCtl('my:'+c,'dl'+ci,courseDishes(c).map(([s,d])=>`<option value="${esc(d)}">${esc(s)}</option>`).join(''),!list.length)}`}
 function myMenuHtml(){
-  const h=state.hotel;let ci=0;
-  return `<section class="frame my sticky" data-mymenu><div class="myscroll" data-ks="my">
-    <div class="mt"><span class="script">Moj meni</span><p>Povuci jelo iz menija desno ili ga dodaj s plusom. Jela unutar slijeda možeš premještati povlačenjem.</p></div>
-    <div style="display:flex;justify-content:center;align-items:center;gap:10px;margin-top:14px;flex-wrap:wrap">
-      <span class="muted it small">Cijena po osobi</span><span style="width:110px">${money('hotel',null,'myPrice',h.myPrice,{label:'Cijena mog menija'})}</span>
-      ${useBox('menuChoice','my',h.menuChoice==='my','Koristimo moj meni')}
-    </div>
-    ${MYC.map(([c,subs])=>`<div class="mygroup">${myCourseBlock(c,ci++)}${(subs||[]).map(sc=>myCourseBlock(sc,ci++,true)).join('')}</div>`).join('')}
-    <p class="muted it small" style="text-align:center;margin:16px 0 0">Hotel po želji radi i vegetarijanski, veganski i gluten free meni. Vrijeme posluživanja upisuješ u Tijek dana.</p>
-  </div></section>`;
+  const h=state.hotel;let ci=0;const on=h.menuChoice==='my';
+  return `<section class="card mm" data-mymenu>
+    <header class="mm-h">
+      <div><span class="script mm-title">Moj meni</span><p class="muted it small" style="margin:2px 0 0">Povuci jelo s desne strane ili ga dodaj. Jela premještaš povlačenjem.</p></div>
+      <div class="mm-meta"><label class="mm-price"><span class="fl">Cijena po osobi</span><span style="width:104px">${money('hotel',null,'myPrice',h.myPrice,{label:'Cijena mog menija'})}</span></label>
+        ${on?'<span class="pill p-sage">✓ koristi se za izračun</span>':'<button class="btn ghost sm" data-a="chooseMenu" data-v="my">Koristi za izračun</button>'}</div>
+    </header>
+    ${MYC.map(([c,subs])=>`<div class="mm-row" data-course-drop="${esc(c)}">
+      <div class="mm-lab">${c}</div>
+      <div class="mm-items">${mmItems(c,ci++)}
+        ${(subs||[]).map(sc=>`<div class="mm-sub" data-course-drop="${esc(sc)}"><div class="mm-sublab">${sc}</div>${mmItems(sc,ci++)}</div>`).join('')}
+      </div></div>`).join('')}
+    <p class="muted it small mm-foot">Hotel po želji radi i vegetarijanski, veganski i gluten free meni. Vrijeme posluživanja upisuješ u Tijek dana.</p>
+  </section>`;
 }
 function catPanel(){
   const h=state.hotel;const grp=ui.catGroup||'svadbena';const list=CAT_MENUS.filter(m=>(m.g||'svadbena')===grp);
-  ui.catIdx=ui.catIdx||{};let i=Math.min(ui.catIdx[grp]||0,list.length-1);const m=list[i];
-  return `<aside class="catpanel sticky" data-ks="cat">
-    <div class="toolbar center" style="margin-bottom:12px">${seg('catGroup',grp,{svadbena:'Svadbena',svecana:'Svečana',svakodnevna:'Svakodnevna'},{sm:1,label:'Ponuda'})}</div>
-    ${grp!=='svadbena'?`<p class="muted it small" style="text-align:center;margin:0 0 12px">${grp==='svecana'?'Ponuda svečanih obroka 2026 (Restoran Park).':'Svakodnevna ponuda restorana, za ideje.'}</p>`:''}
-    <div class="pager"><button class="ib" data-a="catStep" data-v="-1" aria-label="Prethodni meni"${i<=0?' disabled':''}>${IC.chevL}</button>
+  ui.catIdx=ui.catIdx||{};const i=Math.min(ui.catIdx[grp]||0,list.length-1);const m=list[i];
+  return `<aside class="catpanel" data-ks="cat">
+    <div class="cp-head">
+      <span class="fl">Ponuda hotela</span>
+      ${seg('catGroup',grp,{svadbena:'Svadbena',svecana:'Svečana',svakodnevna:'Svakodnevna'},{sm:1,label:'Ponuda'})}
+      <div class="pager"><button class="ib" data-a="catStep" data-v="-1" aria-label="Prethodni meni"${i<=0?' disabled':''}>${IC.chevL}</button>
+        <div class="pg-mid"><b>${esc(m.name)}</b><span>${m.price?m.price+' € po osobi':esc(m.sub||'')}</span></div>
+        <button class="ib" data-a="catStep" data-v="1" aria-label="Sljedeći meni"${i>=list.length-1?' disabled':''}>${IC.chevR}</button></div>
       <div class="dots">${list.map((x,k)=>`<button class="dot-b${k===i?' on':''}" data-a="catGo" data-v="${k}" aria-label="${esc(x.name)}" title="${esc(x.name)}"></button>`).join('')}</div>
-      <button class="ib" data-a="catStep" data-v="1" aria-label="Sljedeći meni"${i>=list.length-1?' disabled':''}>${IC.chevR}</button></div>
-    <article class="frame mcard${h.menuChoice===m.id?' chosen':''}">
-      <div class="mh"><h3>${m.name}</h3><div class="mprice">${m.price?m.price+' € po osobi':esc(m.sub||'')}</div><div class="muted small" style="margin-top:2px">${i+1} / ${list.length}</div></div>
+    </div>
+    <div class="cp-body">
       ${m.c.map(([course,ds])=>`<div class="course"><h4>${course}</h4>${ds.map(d=>dishRow(d,course,m.name)).join('')}</div>`).join('')}
-      ${m.note?`<p class="muted it small" style="text-align:center;margin:14px 0 0">${esc(m.note)}</p>`:''}
-      <div class="mfoot">${isWed(m)?useBox('menuChoice',m.id,h.menuChoice===m.id,'Koristimo ovaj meni'):''}<button class="btn ghost sm" data-a="copyMenu" data-v="${m.id}">Kopiraj sve u moj meni</button></div>
-    </article>
+      ${m.note?`<p class="muted it small" style="margin:14px 0 0">${esc(m.note)}</p>`:''}
+    </div>
+    <div class="cp-foot">${isWed(m)?(h.menuChoice===m.id?'<span class="pill p-sage">✓ koristi se za izračun</span>':`<button class="btn ghost sm" data-a="chooseMenu" data-v="${m.id}">Koristi za izračun</button>`):''}<button class="btn ghost sm" data-a="copyMenu" data-v="${m.id}">Kopiraj sve u moj meni</button></div>
   </aside>`;
 }
 function myFFHtml(){
-  const h=state.hotel;
-  return `<section class="frame my sticky" data-myff><div class="myscroll" data-ks="myff">
-    <div class="mt"><span class="script">Moj finger food</span><p>Povuci zalogaje iz hotelskog menija ili ih dodaj s plusom.</p></div>
-    <div style="display:flex;justify-content:center;align-items:center;gap:10px;margin-top:14px;flex-wrap:wrap">
-      <span class="muted it small">Cijena po osobi</span><span style="width:110px">${money('hotel',null,'myFingerPrice',h.myFingerPrice,{label:'Cijena mog finger fooda'})}</span>
-      ${useBox('fingerChoice','my',h.fingerChoice==='my','Koristimo moj odabir')}
-    </div>
-    <div class="mycourse" style="margin-top:16px">
+  const h=state.hotel;const on=h.fingerChoice==='my';
+  return `<section class="card mm" data-myff>
+    <header class="mm-h">
+      <div><span class="script mm-title">Moj finger food</span><p class="muted it small" style="margin:2px 0 0">Povuci zalogaje s desne strane ili ih dodaj.</p></div>
+      <div class="mm-meta"><label class="mm-price"><span class="fl">Cijena po osobi</span><span style="width:104px">${money('hotel',null,'myFingerPrice',h.myFingerPrice,{label:'Cijena mog finger fooda'})}</span></label>
+        ${on?'<span class="pill p-sage">✓ koristi se za izračun</span>':'<button class="btn ghost sm" data-a="useFF" data-v="my">Koristi za izračun</button>'}</div>
+    </header>
+    <div class="mm-row" style="border-bottom:0"><div class="mm-lab">Zalogaji</div><div class="mm-items">
       ${h.myFinger.map(x=>myItemHtml(x,'','ff')).join('')}
       ${addCtl('ff','dlff',CAT_FINGER.map(d=>`<option value="${esc(d)}"></option>`).join(''),!h.myFinger.length)}
-    </div>
-  </div></section>`;
+    </div></div>
+  </section>`;
 }
 V.meni=()=>{
-  const h=state.hotel,g=gStats();const view=ui.menuView;
-  const strip=`<section class="card stats">
-    <div><small>Osoba</small><b>${calc('persons')}</b></div>
-    <div><small>Svadbeni meni</small><b>${calc('menu')}</b></div>
-    <div><small>Finger food</small><b>${calc('finger')}</b></div>
-    <div><small>Kolači i torte</small><b>${calc('sweetcake')}</b></div>
-    <div><small>Piće</small><b>${calc('drinks')}</b></div>
-    <div class="em"><small>Hrana i piće</small><b>${calc('food')}</b></div>
-  </section>`;
-  const tabs=`<div class="toolbar center" style="position:relative"><button class="btn ghost sm expbtn" data-a="exportText" data-v="meni">Izvoz</button>${seg('menuView',view,{meni:'Svadbeni meni',finger:'Finger food',slatko:'Kolači i torte',pice:'Piće'},{caps:1})}</div>`;
+  const h=state.hotel,g=gStats();const view=ui.menuView;const c=countBreak();
+  const subnav=`<div class="subnav"><div class="sn-in">
+    ${seg('menuView',view,{meni:'Svadbeni meni',finger:'Finger food',slatko:'Kolači i torte',pice:'Piće'},{caps:1,label:'Dio menija'})}
+    <span class="sp"></span>
+    <span class="sn-sum"><span>${persons()} osoba</span><span>Hrana i piće <b>${calc('food')}</b></span></span>
+    <button class="btn ghost sm" data-a="exportText" data-v="meni">Izvoz</button></div></div>`;
+  const people=`<span class="muted it">${c.g} gostiju + ${c.c} mladenci${c.v?` + ${c.v} izvođača`:''}${c.b?`, bebe se ne broje`:''}</span>`;
   let body='';
   if(view==='meni'){
-    body=`<section class="card" style="margin-bottom:24px;padding:16px 22px"><div style="display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center;justify-content:space-between">
-      <div style="display:flex;gap:12px;align-items:baseline;flex-wrap:wrap"><span class="field"><span class="fl">Broj osoba s popisa gostiju</span></span><b style="font:600 26px/1 var(--serif)">${persons()}</b>${(()=>{const c=countBreak();return `<span class="muted it">${c.g} gostiju + ${c.c} mladenci${c.v?` + ${c.v} izvođača`:''}${c.b?`, bebe (${c.b}) se ne broje`:''}${c.ne?`, ${c.ne} ne dolazi`:''}${c.vn?`, ${c.vn} izvođača bez obroka`:''}</span>`})()}</div>
-      <span class="muted it small">Izvođačima hranu i piće označiš u Gostima.</span>
-    </div><div class="usebar"><span class="fl">Za izračun koristimo</span>${seg('pickMenu',h.menuChoice,Object.assign(Object.fromEntries(CAT_MENUS.filter(isWed).map(m=>[m.id,m.name+' ('+m.price+' €)'])),{my:'Moj meni ('+fnum(num(h.myPrice))+' €)'}),{sm:1,label:'Meni za izračun'})}</div>${g.diet.length?`<p class="muted it small" style="margin:10px 0 0">Posebna prehrana: ${esc(g.diet.join('; '))}</p>`:''}</section>
-    <div class="menu-layout2">${myMenuHtml()}${catPanel()}</div>`;
+    body=`<div class="mbar">
+      <label class="mb-sel"><span class="fl">Za izračun</span><select class="in" data-ac="menuChoiceSel" aria-label="Meni za izračun">${CAT_MENUS.filter(isWed).map(m=>`<option value="${m.id}"${h.menuChoice===m.id?' selected':''}>${esc(m.name)}, ${m.price} €</option>`).join('')}<option value="my"${h.menuChoice==='my'?' selected':''}>Moj meni, ${fnum(num(h.myPrice))||0} €</option></select></label>
+      <span class="mb-calc"><b>${persons()}</b> osoba × <b>${eur(menuPrice())}</b> = <b class="wine">${calc('menu')}</b></span>
+      ${people}
+      ${g.diet.length?`<span class="muted it small">Posebna prehrana: ${esc(g.diet.join('; '))}</span>`:''}
+    </div>
+    <div class="mwork">${myMenuHtml()}${catPanel()}</div>`;
   }else if(view==='finger'){
-    body=`<div class="menu-layout2">
+    body=`<div class="mbar">
+      <label class="mb-sel"><span class="fl">Za izračun</span><select class="in" data-ac="fingerChoiceSel" aria-label="Finger food za izračun"><option value="hotel"${h.fingerChoice!=='my'?' selected':''}>Hotelski finger food, 28 €</option><option value="my"${h.fingerChoice==='my'?' selected':''}>Moj odabir, ${fnum(num(h.myFingerPrice))||0} €</option></select></label>
+      <span class="mb-calc"><b>${persons()}</b> osoba × <b>${eur(fingerPP())}</b> = <b class="wine">${calc('finger')}</b></span>
+      ${people}
+    </div>
+    <div class="mwork">
       ${myFFHtml()}
-      <aside class="catpanel sticky" data-ks="catff">
-        <article class="frame mcard"><div class="mh"><h3>Finger food meni hotela</h3><div class="mprice">28 € po osobi</div></div>
-          <div class="course">${CAT_FINGER.map(d=>dishRow(d,'','Hotel','ffdish')).join('')}</div>
-          <div class="mfoot">${useBox('fingerChoice','hotel',h.fingerChoice!=='my','Koristimo hotelski finger food')}<button class="btn ghost sm" data-a="copyAllFF">Kopiraj sve u moj odabir</button></div></article>
+      <aside class="catpanel" data-ks="catff">
+        <div class="cp-head"><span class="fl">Ponuda hotela</span><div class="pg-mid" style="padding:4px 0"><b>Finger food meni</b><span>28 € po osobi</span></div></div>
+        <div class="cp-body"><div class="course">${CAT_FINGER.map(d=>dishRow(d,'','Hotel','ffdish')).join('')}</div></div>
+        <div class="cp-foot">${h.fingerChoice!=='my'?'<span class="pill p-sage">✓ koristi se za izračun</span>':'<button class="btn ghost sm" data-a="useFF" data-v="hotel">Koristi za izračun</button>'}<button class="btn ghost sm" data-a="copyAllFF">Kopiraj sve u moj odabir</button></div>
       </aside>
     </div>`;
   }else if(view==='slatko'){
@@ -1517,7 +1755,7 @@ V.meni=()=>{
       </div>
     </div>`;
   }
-  return `<div class="wrap">${header('Meni','Sve iz kataloga Park Boutique Hotela. Kombiniraj svoj meni, a iznosi idu ravno u budžet.')}${strip}${tabs}${body}</div>`;
+  return `<div class="wrap">${header('Meni','Sve iz kataloga Park Boutique Hotela. Kombiniraj svoj meni, a iznosi idu ravno u budžet.')}${subnav}<div class="mview">${body}</div></div>`;
 };
 
 /* ---------- guests ---------- */
@@ -1710,9 +1948,9 @@ V.rucak=()=>{
     </aside>
   </div></div>`;
 };
-V.tijek=()=>`<div class="wrap">${header('Tijek dana','Cijeli vikend, od druženja u petak do ručka u nedjelju. Vremena koja upišeš za subotu pojavljuju se na početnoj.')}
+V.tijek=()=>`<div class="wrap">${header('Tijek dana','Cijeli vikend, od druženja u petak do ručka u nedjelju. Zvjezdicom označi glavne stavke koje se prikazuju na početnoj.')}
   ${Object.entries(DAYS).map(([k,n])=>`<section class="card day"><h3>${n}</h3><div class="tl" data-sort="tl">
-    ${state.timeline.filter(t=>t.day===k).map(t=>`<div class="tlrow" data-sid="${t.id}">${handle()}${inp('tl',t.id,'time',t.time,{ph:'--:--',cls:'time',label:'Vrijeme'})}${inp('tl',t.id,'text',t.text,{ph:'Što se događa'})}${inp('tl',t.id,'note',t.note,{ph:'Napomena',cls:'nt'})}${del('tl',t.id)}</div>`).join('')}
+    ${state.timeline.filter(t=>t.day===k).map(t=>`<div class="tlrow" data-sid="${t.id}">${handle()}${inp('tl',t.id,'time',t.time,{ph:'--:--',cls:'time',label:'Vrijeme'})}${inp('tl',t.id,'text',t.text,{ph:'Što se događa'})}${inp('tl',t.id,'note',t.note,{ph:'Napomena',cls:'nt'})}<button class="ib star${t.key?' on':''}" data-a="tlKey" data-id="${t.id}" aria-pressed="${!!t.key}" title="${t.key?'Makni s početne':'Prikaži na početnoj'}" aria-label="Istakni na početnoj">${IC.star}</button>${del('tl',t.id)}</div>`).join('')}
     </div><div class="addline"><button class="btn ghost sm" data-a="addTl" data-v="${k}">${IC.plus} Dodaj stavku</button></div></section>`).join('')}</div>`;
 function imgSrc(it){if(it.seed!=null&&SEED_IMGS[it.seed])return SEED_IMGS[it.seed].src;if(it.asset)return it.url||('/_blob/'+it.asset);if(it.idb)return idbUrls[it.id]||'';return it.src||''}
 V.inspo=()=>{const I=state.inspo,f=ui.iFilter;const list=I.items.filter(it=>f==='Sve'||(f==='Favoriti'?it.fav:it.cat===f));const counts=c=>I.items.filter(it=>it.cat===c).length;
@@ -1748,7 +1986,8 @@ async function hydrateIdb(){for(const img of $$('img[data-idb]')){const id=img.d
 function target(c,id,el){
   switch(c){
     case 'hotel':return state.hotel;case 'rooms':return state.rooms;case 'ui':return ui;case 'rucak':return state.rucak;case 'plan':return state.plans.find(x=>x.id===id);
-    case 'b':return state.budget.find(x=>x.id===id);case 'bc':return state.budgetCats.find(x=>x.id===id);
+    case 'b':return state.budget.find(x=>x.id===id);case 'bpre':{const r=state.budget.find(x=>x.id===id);if(r&&!r.pre)r.pre={mode:'none',val:0,due:''};return r&&r.pre}
+    case 'bpay':{const [rid,pid]=String(id).split(':');const r=state.budget.find(x=>x.id===rid);return r&&(r.pays||[]).find(x=>x.id===pid)}case 'bc':return state.budgetCats.find(x=>x.id===id);
     case 'p':return state.parties.find(x=>x.id===id);case 'm':return findMember(id)[0];case 'r':return state.rooms.list.find(x=>x.id===id);
     case 't':return tableById(id);case 'g':return state.tasks.find(x=>x.id===id);
     case 'i':for(const g of state.tasks){const it=g.items.find(x=>x.id===id);if(it)return it}return null;
@@ -1817,7 +2056,7 @@ const A={
   tab(el){$('.top').classList.remove('open');ui.tab=el.dataset.v;ui.selG=null;$('#more').open=false;try{localStorage.setItem(LS+'-tab',ui.tab)}catch(e){}render(false);window.scrollTo(0,0);$('#main').focus({preventScroll:true})},
   del(el){const c=el.dataset.c,id=el.dataset.id;const names={b:'Stavka obrisana',bc:'Kategorija obrisana',p:'Grupa obrisana',m:'Osoba obrisana',r:'Soba obrisana',t:'Stol obrisan',g:'Grupa zadataka obrisana',i:'Zadatak obrisan',d:'Kartica obrisana',tl:'Stavka obrisana',img:'Slika obrisana'};
     let after=null;if(c==='img'){const it=target('img',id);if(it&&it.idb)after=()=>idb.del(id).catch(()=>{})}withUndo(names[c]||'Obrisano',()=>removeItem(c,id),after)},
-  addBudget(el){const r={id:uid(),cat:el.dataset.v||'ostalo',name:'',mode:'fixed',est:0,formula:'',actual:0,paid:0,note:''};state.budget.push(r);save();render();focusNew(`[data-c="b"][data-id="${r.id}"][data-f="name"]`)},
+  addBudget(el){const r={id:uid(),cat:el.dataset.v||'ostalo',name:'',mode:'fixed',est:0,formula:'',actual:0,paid:0,note:'',pre:{mode:'none',val:0,due:''},status:'procjena',pays:[],before:0,beforeDue:'',payWhen:'poslije',depMode:'pct',depVal:30};state.budget.push(r);save();render();focusNew(`[data-c="b"][data-id="${r.id}"][data-f="name"]`)},
   addBCat(){const c={id:uid(),name:'Nova kategorija'};state.budgetCats.push(c);save();render();focusNew(`[data-c="bc"][data-id="${c.id}"]`)},
   insVar(el){const f=ui.lastFx&&document.body.contains(ui.lastFx)?ui.lastFx:null;if(!f){toast('Prvo klikni u polje s formulom.');return}const s=f.selectionStart??f.value.length,e=f.selectionEnd??s;const ins=el.dataset.v;f.value=f.value.slice(0,s)+ins+f.value.slice(e);f.focus();f.setSelectionRange(s+ins.length,s+ins.length);setField(f);softUpdate()},
   addParty(){const side=['S','B','R','V'].includes(ui.g.side)?ui.g.side:'S';const p={id:uid(),name:'',side,rsvp:'ceka',note:'',couple:false,members:[{id:uid(),name:'',age:'odrasli',diet:'',table:null,seat:null}]};const idx=state.parties.findIndex(x=>!x.couple);state.parties.splice(Math.max(0,idx),0,p);ui.open.add(p.id);ui.g.q='';save();render();focusNew(`[data-c="p"][data-id="${p.id}"][data-f="name"]`)},
@@ -1846,6 +2085,29 @@ const A={
   async expSave(){const t=$('#expTxt').value;const fn='vjencanje-'+(ui.expSec||'sve')+'.txt';const blob=new Blob([t],{type:'text/plain'});
     try{const d=window.claude&&claude.use?await claude.use('downloads'):null;if(d){await d.save({filename:fn,data:blob});toast('Spremljeno');return}}catch(e){if(e&&e.code==='declined')return}
     const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=fn;document.body.appendChild(a);a.click();a.remove()},
+  useFF(el){state.hotel.fingerChoice=el.dataset.v;save();render()},
+  fxEdit(el){ui.fxEdit=ui.fxEdit===el.dataset.id?null:el.dataset.id;render()},
+  depMode(el){const r=target('b',el.dataset.id);if((r.depMode||'pct')===el.dataset.v)return;const a=rowBeforeAmt(r),e=rowExp(r);r.depMode=el.dataset.v;r.depVal=r.depMode==='amount'?Math.round(a):(e?Math.round(a/e*100):30);save();render()},
+  bManual(el){const r=target('b',el.dataset.id);r.est=Math.round(rowEst(r));r.mode='fixed';save();render()},
+  bLinkOpen(el){ui.linkOpen=el.dataset.id;render()},
+  bDue(el){ui.dueOpen=el.dataset.id;render();const i=$(`input[data-c="b"][data-id="${el.dataset.id}"][data-f="beforeDue"]`);if(i){i.focus();try{i.showPicker&&i.showPicker()}catch(e){}}},
+  bQuick(el){const r=target('b',el.dataset.id);r.before=Math.round(rowEst(r)*(+el.dataset.v)/100);save();render()},
+  bAllPaid(el){const r=target('b',el.dataset.id);r.paid=Math.round(rowEst(r)*100)/100;save();render()},
+  bPayPre(el){const r=target('b',el.dataset.id);r.paid=Math.round(Math.max(rowPaid(r),rowBeforeAmt(r))*100)/100;save();render();toast(r.name+': plaćeno')},
+  bOpen(el){ui.bOpen=ui.bOpen===el.dataset.id?null:el.dataset.id;render()},
+  bStatus(el){const r=target('b',el.dataset.id);r.status=el.dataset.v;save();render()},
+  bStatusToggle(el){const r=target('b',el.dataset.id);r.status=r.status==='dogovoreno'?'procjena':'dogovoreno';save();render()},
+  payAdd(el){const r=target('b',el.dataset.id);r.pays=r.pays||[];const k=el.dataset.v;const amt=rowEst(r);
+    if(k==='kapara')r.pays.push({id:uid(),label:'Kapara',mode:'pct',val:30,when:'prije',due:'',paid:false});
+    else if(k==='ostatak')r.pays.push({id:uid(),label:'Ostatak',mode:'amount',val:Math.max(0,Math.round(amt-rowSched(r))),when:'dan',due:'',paid:false});
+    else r.pays.push({id:uid(),label:'',mode:'amount',val:0,when:'prije',due:'',paid:false});
+    save();render()},
+  payDel(el){const [rid,pid]=el.dataset.id.split(':');const r=target('b',rid);r.pays=(r.pays||[]).filter(p=>p.id!==pid);save();render()},
+  payMode(el){const p=target('bpay',el.dataset.id);const [rid]=el.dataset.id.split(':');const r=target('b',rid);if(p.mode===el.dataset.v)return;const a=payAmt(r,p);p.mode=el.dataset.v;p.val=p.mode==='pct'?(rowEst(r)?Math.round(a/rowEst(r)*100):0):Math.round(a);save();render()},
+  preOpen(el){ui.preOpen=ui.preOpen===el.dataset.id?null:el.dataset.id;render()},
+  preClose(){ui.preOpen=null;render()},
+  preMode(el){const r=state.budget.find(x=>x.id===el.dataset.id);r.pre=r.pre||{mode:'none',val:0,due:''};const m=el.dataset.v;if(r.pre.mode!==m){r.pre.mode=m;if(m==='pct'&&!num(r.pre.val))r.pre.val=30;if(m==='amount')r.pre.val=Math.round(rowExp(r)*0.3)}save();render()},
+  tlKey(el){const t=target('tl',el.dataset.id);t.key=!t.key;save();render()},
   sweetsServe(el){state.hotel.sweetsServe=el.dataset.v;save();render()},
   openAdd(el){ui.addOpen=el.dataset.v;render();focusNew(`[data-addkey="${el.dataset.v}"]`)},
   addFromKey(el){addFromInput($(`[data-addkey="${el.dataset.v}"]`))},
@@ -1865,7 +2127,7 @@ const A={
     state.tables=presetTables(k);state.floor={layout:k,dance:{...PRESETS[k].dance},items:state.floor.items||[]};ui.selT=null;const nh=state.tables[0];for(const [mid,s] of Object.entries(keep)){const [m]=findMember(mid);if(m){m.table=nh.id;m.seat=s}}})},
   seatView(el){ui.seatView=el.dataset.v;render()},
   zoom(el){const v=+el.dataset.v;ui.zoom=v?Math.max(.45,Math.min(2,(ui.zCur||1)+v*.15)):null;applyZoom()},
-  menuView(el){ui.menuView=el.dataset.v;render()},
+  menuView(el){ui.menuView=el.dataset.v;render(false);const sn=$('.subnav');if(sn){const y=sn.getBoundingClientRect().top+window.scrollY-62;if(window.scrollY>y)window.scrollTo(0,y)}},
   chooseMenu(el){state.hotel.menuChoice=el.dataset.v;save();render()},
   copyDish(el,e){e.stopPropagation();copyToMy(el.dataset.v,el.dataset.course,el.dataset.src)},
   copyMenu(el){const m=CAT_MENUS.find(x=>x.id===el.dataset.v);withUndo(m.name+' kopiran u Moj meni',()=>{for(const [c,ds] of m.c)for(const d of ds)state.hotel.myMenu.push({id:uid(),course:mapCourse(c,d),text:d,src:m.name,note:''})})},
@@ -1952,6 +2214,7 @@ function openPrompt(title,ph,cb){const m=$('#modal');m.innerHTML=`<div class="bo
 const D={s:null,swallow:false};
 document.addEventListener('click',e=>{if(D.swallow){D.swallow=false;e.stopPropagation();e.preventDefault()}},true);
 document.addEventListener('click',e=>{const el=e.target.closest('[data-a]');if(!el)return;const f=A[el.dataset.a];if(f)f(el,e)});
+document.addEventListener('focusout',e=>{if(e.target.matches&&e.target.matches('[data-f="beforeDue"]')){setTimeout(()=>{if(ui.dueOpen&&!(document.activeElement&&document.activeElement.matches('[data-f="beforeDue"]'))){ui.dueOpen=null;render()}},150)}});
 document.addEventListener('focusout',e=>{if(e.target.matches&&e.target.matches('[data-addkey]')&&!e.target.value.trim()&&ui.addOpen){setTimeout(()=>{if(ui.addOpen&&!(document.activeElement&&document.activeElement.closest('.madd'))){ui.addOpen=null;render()}},200)}});
 document.addEventListener('focusout',e=>{if(e.target.matches&&e.target.matches('input.due')){setTimeout(()=>{if(ui.editDue&&!(document.activeElement&&document.activeElement.matches('input.due'))){ui.editDue=null;render()}},150)}});
 document.addEventListener('focusout',e=>{if(e.target.matches&&e.target.matches('.fin')){ui.editItem=null;setTimeout(()=>{if(!ui.editItem)render()},0)}});
@@ -1996,14 +2259,20 @@ document.addEventListener('change',e=>{const el=e.target;
   if(el.dataset.f==='due'){setField(el);ui.editDue=null;render();return}
   if(el.dataset.ac==='seatSel'){const tid=el.dataset.id,i=+el.dataset.v;const cur=(seatMapAll()[tid]||{})[i];if(cur)unseat(cur[0]);if(el.value)placeMember(el.value,tid,i);save();render();return}
   if(el.id==='importFile'){importFile(el);return}if(el.id==='upFile'){addImages([...el.files]);el.value='';return}if(el.id==='cakeFile'){addCakeImgs([...el.files]);el.value='';return}
+  if(el.dataset.ac==='menuChoiceSel'){state.hotel.menuChoice=el.value;save();render();return}
+  if(el.dataset.ac==='fingerChoiceSel'){state.hotel.fingerChoice=el.value;save();render();return}
+  if(el.dataset.ac==='bMethod'){const r=target('b',el.dataset.id);if(el.value==='fixed'){r.est=Math.round(rowEst(r));r.mode='fixed'}else applyFx(r,fxGuess(r.name));ui.fxEdit=null;save();render();return}
+  if(el.dataset.ac==='bPreset'){const r=target('b',el.dataset.id);applyFx(r,el.value);save();render();return}
+  if(el.dataset.ac==='bLink'){if(!el.value)return;const r=target('b',el.dataset.id);r.mode='plan';r.t=el.value;ui.linkOpen=null;save();render();return}
+  if(el.dataset.f==='beforeDue'){setField(el);ui.dueOpen=null;render();return}
   if(el.dataset.ac==='use'){state.hotel[el.dataset.k]=el.value;save();render();return}
   if(el.dataset.ac==='pickFF'){if(!el.value)return;const it=state.hotel.myFinger.find(x=>x.id===el.dataset.id);if(it){it.text=el.value.split('::').slice(1).join('::');it.src='Hotel'}save();render();return}
   if(!el.dataset.f)return;
-  if(el.type==='checkbox'||el.tagName==='SELECT'||el.dataset.c==='rooms'||el.dataset.c==='price'||(el.dataset.c==='hotel'&&(el.dataset.f==='myPrice'||el.dataset.f==='myFingerPrice'))){setField(el);render()}
+  if(el.type==='checkbox'||el.tagName==='SELECT'||el.dataset.c==='rooms'||el.dataset.c==='price'||el.dataset.c==='bpre'||el.dataset.c==='bpay'||(el.dataset.c==='hotel'&&(el.dataset.f==='myPrice'||el.dataset.f==='myFingerPrice'))){setField(el);render()}
   else{setField(el);if(el.dataset.num)el.value=fnum(num(el.value));softUpdate()}
 });
 document.addEventListener('click',e=>{const m=$('#more');if(m.open&&!e.target.closest('#more'))m.open=false});
-async function importFile(el){const f=el.files[0];el.value='';if(!f)return;try{const obj=JSON.parse(await f.text());if(!obj||!Array.isArray(obj.budget)||!Array.isArray(obj.parties))throw 0;withUndo('Podaci uvezeni',()=>{state=migrate(obj)})}catch(e){toast('Ta datoteka nije kopija ovog plana.')}}
+async function importFile(el){const f=el.files[0];el.value='';if(!f)return;try{const obj=JSON.parse(await f.text());if(!obj||!Array.isArray(obj.budget)||!Array.isArray(obj.parties))throw 0;withUndo('Podaci uvezeni',()=>{state=migrate(obj);postMigrate()})}catch(e){toast('Ta datoteka nije kopija ovog plana.')}}
 async function shrink(file,max=1400){const url=URL.createObjectURL(file);try{const img=await new Promise((res,rej)=>{const i=new Image();i.onload=()=>res(i);i.onerror=rej;i.src=url});const s=Math.min(1,max/Math.max(img.naturalWidth,img.naturalHeight));const c=document.createElement('canvas');c.width=Math.round(img.naturalWidth*s);c.height=Math.round(img.naturalHeight*s);c.getContext('2d').drawImage(img,0,0,c.width,c.height);return await new Promise(r=>c.toBlob(r,'image/jpeg',.84))}finally{URL.revokeObjectURL(url)}}
 async function addImages(files){files=files.filter(f=>f.type.startsWith('image/'));if(!files.length)return;toast('Dodajem slike…');const cat=state.inspo.cats.includes(ui.iFilter)?ui.iFilter:'Ostalo';let n=0;const assets=await getAssets();
   for(const f of files){let blob;try{blob=await shrink(f)}catch(e){continue}const it={id:uid(),title:f.name.replace(/\.[^.]+$/,'').slice(0,40),cat,fav:false,note:''};let ok=false;
@@ -2088,7 +2357,7 @@ function endDrag(s,e){document.body.style.userSelect='';
 
 /* ================= boot ================= */
 $('#modal').addEventListener('click',e=>{if(e.target.id==='modal')A.closeModal()});
-ensureFeed();render(false);updThemeBtn();setStatus('Spremljeno na uređaju');initCloud();
+try{postMigrate()}catch(e){console.error(e)}ensureFeed();render(false);updThemeBtn();setStatus('Spremljeno na uređaju');initCloud();
 </script>
 </body>
 </html>
