@@ -169,10 +169,11 @@ select option{background:var(--paper);color:var(--ink)}
 .p-apr,.side-R{background:var(--gold2);color:var(--apr)}
 .p-plain,.side-V{background:var(--neutral2);color:var(--ink2)}
 .rs-dolazi{background:var(--sage2);color:var(--sage)}
-.rs-ceka{background:var(--gold2);color:var(--apr)}
+.rs-ceka,.rs-vjerojatno{background:var(--gold2);color:var(--apr)}
+.rs-vne{background:color-mix(in srgb,var(--apr) 22%,var(--paper));color:color-mix(in srgb,var(--apr) 80%,var(--ink))}
 .rs-ne{background:var(--rose2);color:var(--wine)}
 .dot{width:8px;height:8px;border-radius:50%;flex:none;display:inline-block}
-.dot.side-S{background:var(--wine)}.dot.side-B{background:var(--sage)}.dot.side-R{background:var(--gold)}.dot.side-V{background:var(--faint)}
+.dot{width:10px!important;height:10px!important;border:1px solid}.dot.side-S{background:var(--rose2);border-color:#5D86A8}.dot.side-B{background:var(--sage2);border-color:var(--sage)}.dot.side-R{background:var(--gold2);border-color:var(--apr)}.dot.side-V{background:var(--neutral2);border-color:var(--faint)}
 .chips{display:flex;flex-wrap:wrap;gap:6px}
 .chip{display:inline-flex;align-items:center;gap:2px;border-radius:999px;padding:1px 11px;font-size:15px;line-height:1.6;white-space:nowrap;max-width:100%;border:1px solid transparent}
 .chip.g{cursor:grab;touch-action:none;user-select:none}
@@ -844,6 +845,71 @@ b,strong,.kv b{font-weight:500}
 .cp-foot{border-top:1px solid var(--line);padding:12px 16px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
 @media (max-width:1180px){.mwork{grid-template-columns:minmax(0,1fr)}.catpanel{position:static;max-height:none}.cp-body{overflow:visible}}
 @media (max-width:860px){.mm{padding:22px 18px}.mm-row{grid-template-columns:1fr;gap:4px}.mm-lab{padding-top:0}.sn-sum{display:none}.subnav{overflow-x:auto}}
+/* ===== v24 ===== */
+.psel.rs-mix{background-color:var(--neutral2);color:var(--mauve)}
+.mtbl th:nth-child(2){width:150px!important}.mtbl th:nth-child(3){width:140px!important}.mtbl th:nth-child(4){width:auto!important}.mtbl th:nth-child(5){width:372px!important}
+.stay{flex-wrap:nowrap!important;gap:6px!important}.stay .seg.sm button{padding:2px 8px;font-size:13px}.mtbl th:nth-child(6){width:34px!important}
+.mtbl th:first-child{min-width:150px}
+.mtbl td .psel{max-width:150px}
+.surf{background:color-mix(in srgb,var(--gold) 18%,var(--paper))!important;border-color:color-mix(in srgb,var(--gold) 60%,transparent)!important}
+.surf .tn{color:var(--ink2)!important}
+.surf .tc{color:var(--soft)}
+.zone.terr{background:repeating-linear-gradient(0deg,transparent 0 23px,color-mix(in srgb,var(--gold) 14%,transparent) 23px 24px),color-mix(in srgb,var(--gold) 8%,var(--paper))!important}
+.dance{border-color:color-mix(in srgb,var(--gold) 60%,transparent)!important;background:repeating-linear-gradient(45deg,color-mix(in srgb,var(--gold) 16%,transparent) 0 10px,color-mix(in srgb,var(--gold) 6%,transparent) 10px 20px)!important}
+.dance span{color:color-mix(in srgb,var(--gold) 85%,var(--ink))!important}
+.surf.head{flex-direction:row!important;gap:6px!important;white-space:nowrap}
+.surf.head .tn,.surf.head .tc{white-space:nowrap;font-size:10px;letter-spacing:.08em}
+.chair{border-color:color-mix(in srgb,var(--gold) 60%,transparent)}
+.pal i{background:color-mix(in srgb,var(--gold) 18%,var(--paper))!important;border-color:color-mix(in srgb,var(--gold) 60%,transparent)!important}
+.fitem{background:color-mix(in srgb,var(--gold) 10%,var(--paper))!important;border:1.2px dashed color-mix(in srgb,var(--gold) 70%,transparent)!important}
+.fitem span:first-child,.fitem .flab{color:var(--ink2)!important}
+.statline{flex-wrap:wrap;justify-content:center;row-gap:6px}
+/* ===== v26 KPI ===== */
+.kpis{display:grid;grid-template-columns:minmax(220px,.9fr) minmax(0,1.6fr) minmax(0,1.2fr);padding:0!important;margin-bottom:24px;overflow:hidden}
+.kpis.inner{grid-template-columns:minmax(220px,.8fr) minmax(0,2fr);margin:-24px -26px 0;border-bottom:1px solid var(--line)}
+.bsum{padding-top:24px}
+.kpi{padding:22px 26px;border-left:1px solid var(--line);display:flex;flex-direction:column;gap:10px;min-width:0}
+.kpi:first-child{border-left:0}
+.kpi>small{font:500 10.5px/1.3 var(--label);letter-spacing:.14em;text-transform:uppercase;color:var(--soft)}
+.kpi.kpi-hero{background:color-mix(in srgb,var(--wine) 5%,var(--paper))}
+.kpi.kpi-hero>b{font:500 54px/1 var(--serif);color:var(--wine);font-variant-numeric:lining-nums}
+.kpi-sub{color:var(--soft);font:italic 500 15px/1.3 var(--serif)}
+.kpi-em{margin-top:auto;padding-top:10px;border-top:1px dotted var(--line2);font-size:14.5px;color:var(--ink2)}
+.kpi-em b{font:500 22px/1 var(--serif);color:var(--ink)}
+.kpi-num{font:400 34px/1 var(--serif)}
+.kpi-mid{display:flex;align-items:baseline;gap:6px}
+.sbar{display:flex;height:12px;border-radius:999px;overflow:hidden;background:var(--paper2);gap:2px;box-shadow:inset 0 0 0 1px var(--line)}
+.sbar i{display:block;height:100%}
+.slegend{list-style:none;margin:2px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:8px 22px}
+.slegend li{display:flex;align-items:center;gap:8px;font-size:14.5px;color:var(--ink2);min-width:0}
+.slegend .sw{width:10px;height:10px;border-radius:3px;flex:none;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08)}
+.slegend b{margin-left:auto;font:500 19px/1 var(--serif);color:var(--ink);white-space:nowrap}
+.slegend li.em span:not(.sw){color:var(--ink);font-weight:500}.slegend li.em b{color:var(--wine)}
+.sidelist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.sidelist li{display:grid;grid-template-columns:12px minmax(0,1fr) auto;column-gap:10px;row-gap:5px;align-items:center;font-size:14.5px}
+.sidelist .mb{grid-column:2/4;height:4px;border-radius:2px;background:var(--paper2);overflow:hidden}.sidelist .mb i{display:block;height:100%}
+.sidelist b{font:500 19px/1 var(--serif)}
+.kpi-foot{grid-column:1/-1;border-top:1px solid var(--line);padding:10px 26px;color:var(--soft);font:italic 500 15px/1.3 var(--serif)}
+.sidesel{display:inline-flex;align-items:center;gap:8px;justify-self:start;font-size:15px;color:var(--ink)}
+.sidesel select{appearance:none;-webkit-appearance:none;border:0;border-bottom:1px dashed transparent;background:transparent var(--chev) right 2px center/10px no-repeat;padding:3px 18px 3px 0;font:inherit;color:inherit;cursor:pointer;border-radius:0}
+.sidesel select:hover,.sidesel select:focus-visible{border-bottom-color:var(--mauve);outline:none}
+@media (max-width:860px){.kpis,.kpis.inner{grid-template-columns:1fr}.kpi{border-left:0;border-top:1px solid var(--line)}.kpi:first-child{border-top:0}.kpis.inner{margin:-24px -18px 0}}
+.sidesel select{width:auto!important;min-width:0;field-sizing:content}
+.rs-ne,.psel.rs-ne{background-color:color-mix(in srgb,var(--wine) 14%,var(--paper))!important;color:var(--wine)!important}
+.kpi-mini{display:flex;flex-direction:column;gap:4px}
+.kpi-mini b{font:500 18px/1 var(--serif)!important;margin-right:4px}
+.sbar i{box-shadow:inset 0 0 0 1px rgba(60,40,30,.12)}
+.slegend .sw{box-shadow:inset 0 0 0 1px rgba(60,40,30,.25)}
+:root{--st-yes:repeating-linear-gradient(135deg,var(--sage2) 0 5px,color-mix(in srgb,var(--sage2) 35%,var(--paper)) 5px 10px);--st-no:repeating-linear-gradient(135deg,color-mix(in srgb,var(--wine) 16%,var(--paper)) 0 5px,color-mix(in srgb,var(--wine) 4%,var(--paper)) 5px 10px)}
+.rs-dolazi,.psel.rs-dolazi{background-color:var(--sage2)!important;color:var(--sage)!important}
+.psel.rs-vjerojatno,.psel.rs-ceka{background-color:var(--sage2)!important;background-image:var(--chev),var(--st-yes)!important;background-repeat:no-repeat,repeat!important;background-position:right 11px center,0 0!important;color:var(--sage)!important}
+.psel.rs-vne{background-color:color-mix(in srgb,var(--wine) 10%,var(--paper))!important;background-image:var(--chev),var(--st-no)!important;background-repeat:no-repeat,repeat!important;background-position:right 11px center,0 0!important;color:var(--wine)!important}
+.rs-ne,.psel.rs-ne{background-color:color-mix(in srgb,var(--wine) 16%,var(--paper))!important;color:var(--wine)!important}
+.room .rh{gap:6px}
+.rgrip{cursor:grab;color:var(--faint);display:inline-flex;touch-action:none;margin-left:-4px}
+.rgrip:hover{color:var(--wine)}
+.rgrip svg{width:14px;height:14px}
+.room.dz{box-shadow:0 0 0 2px var(--wine)}
 </style>
 </head>
 <body>
@@ -981,7 +1047,7 @@ const CAT_APER=[['Domaće rakije i likeri, 0,05 l','3,00 do 4,00 €'],["Jack Da
 
 /* ================= domain constants ================= */
 const SIDES={S:'Stella',B:'Bruno',R:'Stellini roditelji',V:'Izvođači'};
-const RSVP={ceka:'Čeka odgovor',dolazi:'Dolazi',ne:'Ne dolazi'};
+const RSVP={dolazi:'Dolazi',vjerojatno:'Vjerojatno dolazi',vne:'Vjerojatno ne',ne:'Ne dolazi'};
 const AGES={odrasli:'Odrasla osoba',teen:'Od 12 do 18',dijete:'Dijete do 12',beba:'Beba'};
 const DST={odluceno:'Odlučeno',razmisljam:'Razmišljam',biljeska:'Bilješka'};
 const DAYS={fri:'Petak, 8. listopada',sat:'Subota, 9. listopada',sun:'Nedjelja, 10. listopada'};
@@ -1140,7 +1206,7 @@ function seed(){
   const ins=SEED_IMGS.map((s,i)=>({id:'seed'+i,seed:i,title:s.title,cat:catMap[s.cat]||'Ostalo',fav:false,note:''}));
   const MI=(course,text,src='Moja ideja')=>({id:uid(),course,text,src,note:'',time:''});
   return {
-    v:16,updatedAt:0,
+    v:18,updatedAt:0,
     plans:[{id:'p1',name:'Opcija 1',data:null}],activePlan:'p1',
     rucak:{price:20,extra:0,time:'13:00',place:'',items:items(['Lagani meni za goste koji ostaju','Rođendanska torta'])},
     settings:{couple:'Stella & Bruno',date:'2027-10-09',time:'15:30',place:'Park Boutique Hotel i crkva sv. Nikole'},
@@ -1192,6 +1258,8 @@ function migrate(s){
   if(s.v<16){const KW=/check-in|check-out|prijem|misa|vjenčanj|ceremonij|ulazak u salu|prvi ples|party|torta|(?<!do)ručak|pozdrav|odlazak|doček/i;const seen=new Set();for(const t of s.timeline)if(t.key===undefined){const k=t.day+'|'+String(t.text).trim().toLowerCase();t.key=KW.test(t.text||'')&&!/poziv/i.test(t.text||'')&&!seen.has(k);if(t.key)seen.add(k)}
     for(const d of ['fri','sat','sun']){const l=s.timeline.filter(t=>t.day===d);if(l.length&&!l.some(t=>t.key))l[0].key=true}
     s.v=16}
+  if(s.v<17){for(const p of s.parties)for(const m of p.members)if(!m.rsvp)m.rsvp=p.rsvp==='mix'?'ceka':(p.rsvp||'ceka');s.v=17}
+  if(s.v<18){for(const p of s.parties){if(p.rsvp==='ceka')p.rsvp='vjerojatno';for(const m of p.members)if(m.rsvp==='ceka')m.rsvp='vjerojatno'}s.v=18}
   for(const k of Object.keys(d))if(s[k]===undefined)s[k]=d[k];
   s.hotel=Object.assign({},d.hotel,s.hotel);
   s.rooms=Object.assign({},d.rooms,s.rooms);
@@ -1303,7 +1371,7 @@ try{const t=localStorage.getItem(LS+'-tab');if(t&&(t==='pregled'||TABS.some(x=>x
 const cloud={ref:null,writing:false,pending:false};
 let saveT;
 function setStatus(t,busy){const el=$('#status');el.textContent=t;el.classList.toggle('busy',!!busy)}
-function save(){state.updatedAt=Date.now();try{localStorage.setItem(LS,JSON.stringify(state))}catch(e){}setStatus('Spremanje…',true);clearTimeout(saveT);saveT=setTimeout(pushCloud,1200)}
+function save(){try{compactRooms()}catch(e){}state.updatedAt=Date.now();try{localStorage.setItem(LS,JSON.stringify(state))}catch(e){}setStatus('Spremanje…',true);clearTimeout(saveT);saveT=setTimeout(pushCloud,1200)}
 async function pushCloud(){
   if(!cloud.ref){setStatus('Spremljeno na uređaju');return}
   if(cloud.writing){cloud.pending=true;return}
@@ -1337,10 +1405,29 @@ function getAssets(){if(!assetsP)assetsP=(window.claude&&claude.use)?claude.use(
 /* ================= derived ================= */
 function findMember(id){for(const p of state.parties){const m=p.members.find(x=>x.id===id);if(m)return [m,p]}return [null,null]}
 const vendorFed=p=>p.side==='V'&&p.feed!=='ne';
-function guestCount(){let n=0;for(const p of state.parties){if(p.parked)continue;if(p.side==='V'){if(!vendorFed(p))continue}else if(p.rsvp==='ne')continue;for(const m of p.members)if(m.age!=='beba')n++}return n}
+const mr=(p,m)=>{const v=m.rsvp||p.rsvp||'vjerojatno';return v==='ceka'?'vjerojatno':v};
+function syncRsvp(p){const v=[...new Set(p.members.map(m=>mr(p,m)))];p.rsvp=v.length===1?v[0]:'mix'}
+function stackBar(segs){const t=segs.reduce((a,x)=>a+Math.max(0,x[0]),0)||1;return `<div class="sbar" role="img" aria-label="${esc(segs.map(x=>x[2]+' '+Math.round(x[0])).join(', '))}">${segs.map(([v,c])=>v>0?`<i style="flex:${v/t};background:${c}"></i>`:'').join('')}</div>`}
+function legend(items){return `<ul class="slegend">${items.map(([v,c,l,em])=>`<li${em?' class="em"':''}><span class="sw" style="background:${c}"></span><span>${l}</span><b>${v}</b></li>`).join('')}</ul>`}
+const SIDECOL={S:'#7FA6C7',B:'var(--sage)',R:'var(--apr)',V:'var(--faint)'};
+const RSCOL={dolazi:'var(--sage2)',vjerojatno:'var(--st-yes)',vne:'var(--st-no)',ne:'color-mix(in srgb,var(--wine) 16%,var(--paper))'};
+function guestKpi(){const o={inv:0,beba:0,V:0,parked:0,couple:0,S:0,B:0,R:0,r:{dolazi:0,vjerojatno:0,vne:0,ne:0}};
+  for(const p of state.parties)for(const m of p.members){if(p.parked){if(m.age!=='beba')o.parked++;continue}if(p.side==='V'){o.V++;continue}if(m.age==='beba'){o.beba++;continue}
+    o.inv++;if(p.couple)o.couple++;else o[p.side]++;const r=mr(p,m);o.r[r]=(o.r[r]||0)+1}return o}
+function guestKpiHtml(){const k=guestKpi();const mx=Math.max(1,k.S,k.B,k.R);
+  const notIn=[k.beba?`${k.beba} ${k.beba===1?'beba':'bebe'}`:'',k.V?`${k.V} izvođača`:'',k.parked?`${k.parked} prekriženih (možda kasnije)`:''].filter(Boolean).join(', ');
+  const extra=`Brojke uključuju i vas dvoje.${notIn?` Nisu uključeni: ${notIn}.`:''}`;
+  return `<section class="card kpis">
+    <div class="kpi kpi-hero"><small>Gosti</small><b>${k.r.dolazi+k.r.vjerojatno}</b><span class="kpi-sub">dolaze ili vjerojatno dolaze</span>
+      <div class="kpi-em kpi-mini"><span><b>${k.r.ne+k.r.vne}</b> ne dolazi ili vjerojatno ne</span><span><b>${k.inv}</b> ukupno pozvano</span></div></div>
+    <div class="kpi"><small>Odgovori</small>${stackBar(['dolazi','vjerojatno','vne','ne'].map(x=>[k.r[x],RSCOL[x],RSVP[x]]))}${legend(['dolazi','vjerojatno','vne','ne'].map(x=>[k.r[x],RSCOL[x],RSVP[x],x==='dolazi']))}</div>
+    <div class="kpi"><small>Tko poziva</small><ul class="sidelist">${['S','B','R'].map(x=>`<li><span class="dot side-${x}"></span><span>${esc(SIDES[x])}</span><b>${k[x]}</b><span class="mb"><i style="width:${k[x]/mx*100}%;background:${SIDECOL[x]}"></i></span></li>`).join('')}</ul></div>
+    <div class="kpi-foot">${extra}</div>
+  </section>`}
+function guestCount(){let n=0;for(const p of state.parties){if(p.parked)continue;if(p.side==='V'){if(!vendorFed(p))continue}for(const m of p.members)if(m.age!=='beba'&&(p.side==='V'||mr(p,m)!=='ne'))n++}return n}
 function persons(){return guestCount()}
 function ensureFeed(){if(state.hotel.inclVendors===false){for(const p of state.parties)if(p.side==='V'&&p.feed===undefined)p.feed='ne'}state.hotel.inclVendors=true}
-function countBreak(){const o={g:0,c:0,v:0,vn:0,b:0,ne:0};for(const p of state.parties){if(p.parked)continue;for(const m of p.members){if(p.side==='V'&&!vendorFed(p)){if(m.age!=='beba')o.vn++;continue}if(p.side!=='V'&&p.rsvp==='ne'){if(m.age!=='beba')o.ne++;continue}if(m.age==='beba'){o.b++;continue}if(p.couple)o.c++;else if(p.side==='V')o.v++;else o.g++}}return o}
+function countBreak(){const o={g:0,c:0,v:0,vn:0,b:0,ne:0};for(const p of state.parties){if(p.parked)continue;for(const m of p.members){if(p.side==='V'&&!vendorFed(p)){if(m.age!=='beba')o.vn++;continue}if(p.side!=='V'&&mr(p,m)==='ne'){if(m.age!=='beba')o.ne++;continue}if(m.age==='beba'){o.b++;continue}if(p.couple)o.c++;else if(p.side==='V')o.v++;else o.g++}}return o}
 function menuPrice(){const h=state.hotel;return h.menuChoice==='my'?num(h.myPrice):((CAT_MENUS.find(m=>m.id===h.menuChoice)||{price:0}).price)}
 function fingerPP(){const h=state.hotel;return h.fingerChoice==='my'?num(h.myFingerPrice):28}
 function menuName(){const h=state.hotel;return h.menuChoice==='my'?'Moj meni':(CAT_MENUS.find(m=>m.id===h.menuChoice)||{}).name||''}
@@ -1414,16 +1501,16 @@ function postV14(r){{delete r._v14;const ps=r.pays||[];
   else r.paid=num(r.paid)}}
 function bTot(f){let p=0,e=0,paid=0,left=0,pre=0,after=0;for(const r of state.budget){if(f&&!f(r))continue;p+=rowEst(r);e+=rowExp(r);paid+=rowPaid(r);left+=rowLeft(r);pre+=rowPreLeft(r);after+=rowAfter(r)}return {p,e,paid,left,pre,after}}
 function gStats(){
-  const s={total:0,S:0,B:0,R:0,V:0,dolazi:0,ceka:0,ne:0,beba:0,diet:[],parked:0};
+  const s={total:0,S:0,B:0,R:0,V:0,dolazi:0,vjerojatno:0,vne:0,ne:0,beba:0,diet:[],parked:0};
   for(const p of state.parties)for(const m of p.members){
     if(p.parked){if(m.age!=='beba')s.parked++;continue}
     if(m.diet)s.diet.push(m.name+': '+m.diet);
     if(p.couple)continue;if(p.side==='V'){s.V++;continue}if(m.age==='beba'){s.beba++;continue}
-    s.total++;s[p.side]++;s[p.rsvp]++;
+    s.total++;s[p.side]++;s[mr(p,m)]++;
   }
   return s;
 }
-function lunchCount(){let n=0;for(const p of state.parties){if(p.rsvp==='ne'||p.parked)continue;for(const m of p.members)if(m.lunch&&m.age!=='beba')n++}return n+num(state.rucak.extra)}
+function lunchCount(){let n=0;for(const p of state.parties){if(p.parked)continue;for(const m of p.members)if(m.lunch&&m.age!=='beba'&&mr(p,m)!=='ne')n++}return n+num(state.rucak.extra)}
 function roomOf(mid){return state.rooms.list.find(r=>r.occupants.includes(mid))}
 function taskStats(){let d=0,t=0;for(const g of state.tasks)for(const i of g.items){t++;if(i.done)d++}return {d,t}}
 function weddingDate(){const [y,m,d]=state.settings.date.split('-').map(Number);const [hh,mm]=(state.settings.time||'15:30').split(':').map(Number);return new Date(y,m-1,d,hh||0,mm||0)}
@@ -1431,7 +1518,7 @@ function fmtDate(iso){const [y,m,d]=iso.split('-').map(Number);return d+'. '+MON
 function seatMapAll(){const map={};for(const p of state.parties)for(const m of p.members)if(m.table&&m.seat!=null){(map[m.table]=map[m.table]||{})[m.seat]=[m,p]}return map}
 const tableById=id=>state.tables.find(t=>t.id===id);
 function initials(n){const w=String(n).trim().split(/\s+/);if(w.length>1)return (w[0][0]+w[1][0]).toUpperCase();return String(n).slice(0,2)}
-const seatable=(p,m)=>!p.parked&&p.side!=='V'&&p.rsvp!=='ne'&&m.age!=='beba';
+const seatable=(p,m)=>!p.parked&&p.side!=='V'&&mr(p,m)!=='ne'&&m.age!=='beba';
 
 const CALC={
   bP:()=>eur(bTot().p),bE:()=>eur(bTot().e),bPaid:()=>eur(bTot().paid),bLeft:()=>eur(bTot().left),
@@ -1503,13 +1590,13 @@ V.pregled=()=>{
     </div>
     <button class="btn" data-a="tab" data-v="tijek">Tijek dana</button>
   </section>
-  <div class="wrap" style="padding-top:20px">
+  <div class="wrap" style="padding-top:64px">
     ${header('Naša priča u brojkama','Najvažnije na jednom mjestu. Klikni karticu za detalje.')}
     <div class="grid g4" style="margin-bottom:34px">
       <button class="frame tile" data-a="tab" data-v="budzet" style="cursor:pointer;font:inherit;color:inherit">
         <h3>Budžet</h3><div class="big">${calc('bE')}</div><div class="sub">plaćeno ${calc('bPaid')}</div><div class="bar"><i data-calc="bBar" style="width:${CALC.bBar()}%"></i></div><div class="sub">još ${calc('bLeft')}</div></button>
       <button class="frame tile" data-a="tab" data-v="gosti" style="cursor:pointer;font:inherit;color:inherit">
-        <h3>Gosti</h3><div class="big">${g.total}</div><div class="sub">${g.dolazi} dolazi, ${g.ceka} čeka</div><div class="bar"><i style="width:${pct(g.dolazi,g.total)}%"></i></div><div class="sub">${persons()} osoba za meni</div></button>
+        <h3>Gosti</h3><div class="big">${g.total}</div><div class="sub">${g.dolazi} dolazi, ${g.vjerojatno} vjerojatno</div><div class="bar"><i style="width:${pct(g.dolazi,g.total)}%"></i></div><div class="sub">${persons()} osoba za meni</div></button>
       <button class="frame tile" data-a="tab" data-v="sobe" style="cursor:pointer;font:inherit;color:inherit">
         <h3>Sobe</h3><div class="big">${roomsUsed}</div><div class="sub">od ${state.rooms.list.length} soba u upotrebi</div><div class="bar"><i style="width:${pct(roomsUsed,state.rooms.list.length)}%"></i></div><div class="sub">plaćamo ${calc('rWe')}</div></button>
       <button class="frame tile" data-a="tab" data-v="sjedenje" style="cursor:pointer;font:inherit;color:inherit">
@@ -1589,12 +1676,10 @@ V.budzet=()=>{
   </tbody>`}).join('');
   return `<div class="wrap">${header('Budžet','Plan, ugovoreno i plaćeno, po kategorijama koje možeš premještati.')}
   <section class="card bsum">
-    <div class="bsum-grid">
-      <div><small>Ukupno</small><b>${calc('bE')}</b><span class="muted it small">planirano ${calc('bP')}</span></div>
-      <div><small>Plaćeno</small><b>${calc('bPaid')}</b><div class="bar" style="margin:8px auto 0"><i data-calc="bBar" style="width:${CALC.bBar()}%"></i></div></div>
-      <div class="em"><small>Još prije vjenčanja</small><b>${calc('preL')}</b></div>
-      <div><small>Nakon vjenčanja</small><b>${calc('preA')}</b></div>
-    </div>
+    ${(()=>{const t=preTot();return `<div class="kpis inner">
+      <div class="kpi kpi-hero"><small>Ukupno</small><b>${calc('bE')}</b><span class="kpi-sub">planirano ${calc('bP')}</span></div>
+      <div class="kpi"><small>Plaćanja</small>${stackBar([[t.paid,'var(--sage)','plaćeno'],[t.left,'var(--wine)','još prije vjenčanja'],[t.after,'var(--line2)','nakon vjenčanja']])}${legend([[eur(t.paid),'var(--sage)','Plaćeno'],[eur(t.left),'var(--wine)','Još prije vjenčanja',true],[eur(t.after),'var(--line2)','Nakon vjenčanja']])}</div>
+    </div>`})()}
     ${up.length?`<div class="uplist"><h3 style="margin:18px 0 6px">Prije vjenčanja još platiti</h3>${up.map(r=>`<div class="uprow2"><span class="ell"><b>${esc(r.name||'Stavka')}</b> <span class="muted small">${esc(PAYWHEN[r.payWhen]||'')}</span></span><span class="due${r.beforeDue&&r.beforeDue<today?' late':''}">${r.beforeDue?'do '+fmtDue(r.beforeDue):'bez roka'}</span><b class="r">${eur(rowPreLeft(r))}</b><button class="btn ghost sm" data-a="bPayPre" data-id="${r.id}">Plaćeno</button></div>`).join('')}</div>`:''}
   </section>
   <div class="bhelp2"><span><b>Izračun:</b> upiši iznos ili koristi formulu koja se sama računa (npr. gosti × cijena menija).</span><span><b>Planirano</b> je tvoja procjena.</span><span><b>Ugovoreno</b> upiši kad dobiješ ponudu, tada se ono koristi umjesto procjene.</span><span><b>Plaćanje</b> određuje plaća li se prije vjenčanja, nakon, ili kapara prije pa ostatak nakon.</span></div>
@@ -1764,17 +1849,17 @@ function partyRow(p){
   const nRoom=p.members.filter(m=>m.roomNeed).length,nLunch=p.members.filter(m=>m.lunch).length;
   return `<div class="party${open?' open':''}${p.parked?' parked':''}" data-sid="${p.id}">
     <div class="prow">${handle()}
-      <div style="min-width:0">${inp('p',p.id,'name',p.name,{ph:'Naziv grupe (obitelj, par…)',cls:'nm'})}<div class="who ell">${esc(p.members.map(m=>m.name+(m.age==='beba'?' (beba)':'')).join(', '))||'Nema osoba'}${nRoom?`<span class="mini">soba ${nRoom}</span>`:''}</div></div>
-      ${p.couple?'<span class="pill p-wine" style="justify-self:start">Mladenci</span>':sel('p',p.id,'side',p.side,SIDES,{label:'Tko poziva',pill:1,cls:'side-'+p.side})}
-      ${p.side==='V'?sel('p',p.id,'feed',p.feed==='ne'?'ne':'da',{da:'Plaćamo hranu',ne:'Bez hrane'},{label:'Hrana i piće',pill:1,cls:p.feed==='ne'?'p-plain':'rs-dolazi'}):sel('p',p.id,'rsvp',p.rsvp,RSVP,{label:'Odgovor',pill:1,cls:'rs-'+p.rsvp})}
+      <div style="min-width:0">${inp('p',p.id,'name',p.name,{ph:'Naziv grupe (obitelj, par…)',cls:'nm'})}<div class="who ell">${esc(p.members.map(m=>m.name+(m.age==='beba'?' (beba)':'')).join(', '))||'Nema osoba'}</div></div>
+      ${p.couple?'<span class="sidesel"><span class="dot side-S"></span>Mladenci</span>':`<label class="sidesel"><span class="dot side-${p.side}"></span><select data-c="p" data-id="${p.id}" data-f="side" aria-label="Tko poziva">${Object.entries(SIDES).map(([k,v])=>`<option value="${k}"${p.side===k?' selected':''}>${esc(v)}</option>`).join('')}</select></label>`}
+      ${p.side==='V'?sel('p',p.id,'feed',p.feed==='ne'?'ne':'da',{da:'Plaćamo hranu',ne:'Bez hrane'},{label:'Hrana i piće',pill:1,cls:p.feed==='ne'?'p-plain':'rs-dolazi'}):sel('p',p.id,'rsvp',p.rsvp,p.rsvp==='mix'?Object.assign({mix:'Djelomično'},RSVP):RSVP,{label:'Odgovor za cijelu grupu',pill:1,cls:'rs-'+p.rsvp})}
       <span class="cnt">${cnt}${babies?` <span class="muted small">+${babies}</span>`:''}</span>
       <button class="ib" data-a="toggleParty" data-id="${p.id}" aria-expanded="${open}" aria-label="Uredi osobe" title="Uredi osobe">${open?IC.chevup:IC.chev}</button>
       ${p.couple?'<span></span>':`<button class="ib park" data-a="parkParty" data-id="${p.id}" aria-label="${p.parked?'Vrati na popis':'Prekriži, možda kasnije'}" title="${p.parked?'Vrati na popis':'Prekriži (možda kasnije)'}">${p.parked?IC.rot:IC.strike}</button>`}
       ${p.couple?'<span></span>':del('p',p.id,'Obriši grupu')}
     </div>
-    ${open?`<div class="pedit"><table class="mtbl"><thead><tr><th>Ime</th><th>Dob</th><th>Napomene</th><th>Smještaj</th><th></th></tr></thead><tbody>
+    ${open?`<div class="pedit"><table class="mtbl"><thead><tr><th>Ime</th><th>Dob</th><th>Dolazi</th><th>Napomene</th><th>Smještaj</th><th></th></tr></thead><tbody>
       ${p.members.map(m=>{const r=roomOf(m.id),t=m.table?tableById(m.table):null;return `<tr>
-        <td data-l="Ime">${inp('m',m.id,'name',m.name,{ph:'Ime',box:1})}</td><td data-l="Dob">${sel('m',m.id,'age',m.age,AGES,{label:'Dob'})}</td>
+        <td data-l="Ime">${inp('m',m.id,'name',m.name,{ph:'Ime',box:1})}</td><td data-l="Dob">${sel('m',m.id,'age',m.age,AGES,{label:'Dob'})}</td><td data-l="Dolazi">${p.side==='V'?'':sel('m',m.id,'rsvp',mr(p,m),RSVP,{label:'Odgovor za osobu',pill:1,cls:'rs-'+mr(p,m)})}</td>
         <td data-l="Napomene">${inp('m',m.id,'diet',m.diet,{ph:'npr. vegetarijanac, alergije…',box:1})}</td>
         <td data-l="Smještaj" class="stay">${seg('roomSet',m.roomNeed?String(m.roomNights===1?1:2):'0',{0:'Bez sobe',1:'1 noć',2:'2 noći'},{sm:1,id:m.id,label:'Treba li sobu'})}${m.roomNeed?seg('roomPaySet',m.roomPay||'mi',{mi:'Plaćamo mi',gosti:'Sami plaćaju'},{sm:1,id:m.id,label:'Tko plaća sobu'}):''}</td>
         <td>${p.members.length>1?del('m',m.id,'Obriši osobu'):''}</td></tr>`}).join('')}
@@ -1782,20 +1867,20 @@ function partyRow(p){
       <div class="foot"><button class="btn ghost sm" data-a="addMember" data-id="${p.id}">${IC.plus} Dodaj osobu</button><button class="btn ghost sm" data-a="partyAll" data-id="${p.id}" data-v="roomNeed">Svima soba</button>${inp('p',p.id,'note',p.note,{ph:'Napomena za ovu grupu',box:1})}</div></div>`:''}
   </div>`;
 }
-function partyFilter(p){const g=ui.g;if(g.side!=='all'&&p.side!==g.side)return false;if(g.rsvp!=='all'&&p.rsvp!==g.rsvp)return false;
+function partyFilter(p){const g=ui.g;if(g.side!=='all'&&p.side!==g.side)return false;if(g.rsvp!=='all'&&!p.members.some(m=>mr(p,m)===g.rsvp))return false;
   if(g.q){const q=g.q.toLowerCase();if(!(p.name.toLowerCase().includes(q)||p.members.some(m=>m.name.toLowerCase().includes(q))||p.note.toLowerCase().includes(q)))return false}return true}
 function renderPartyList(){const list=state.parties.filter(partyFilter);const act=list.filter(p=>!p.parked),pk=list.filter(p=>p.parked);
   return (act.length?act.map(partyRow).join(''):'<div class="empty" style="margin:14px;border:0">Nema gostiju za ovaj filter.</div>')+(pk.length?`<div class="parked-h"><span>Možda kasnije</span><span class="muted it">${pk.length} ${pk.length===1?'grupa':'grupe'}, ne broje se nigdje</span></div>${pk.map(partyRow).join('')}`:'')}
 V.gosti=()=>{const s=gStats();return `<div class="wrap">${header('Gosti','Grupirano po obiteljima i parovima. Strelicom otvoriš grupu i urediš imena, dob, napomene i smještaj.')}
-  <div class="statline"><span><b>${s.total}</b>pozvano</span><span><b>${s.S}</b>Stella</span><span><b>${s.B}</b>Bruno</span><span><b>${s.R}</b>roditelji</span><span><b>${s.dolazi}</b>dolazi</span><span><b>${s.ceka}</b>čeka</span><span><b>${s.ne}</b>ne dolazi</span><span><b>${s.beba}</b>beba</span><span><b>${s.V}</b>izvođača</span>${s.parked?`<span><b>${s.parked}</b>možda kasnije</span>`:''}<span><b>${state.parties.reduce((a,p)=>a+p.members.filter(m=>m.roomNeed).length,0)}</b>treba sobu</span></div>
-  <div class="toolbar">${seg('gSide',ui.g.side,{all:'Svi',S:'Stella',B:'Bruno',R:'Roditelji',V:'Izvođači'},{label:'Tko poziva'})}${seg('gRsvp',ui.g.rsvp,{all:'Svi odgovori',dolazi:'Dolazi',ceka:'Čeka',ne:'Ne dolazi'},{label:'Odgovor'})}<span class="sp"></span>
+  ${guestKpiHtml()}
+  <div class="toolbar">${seg('gSide',ui.g.side,{all:'Svi',S:'Stella',B:'Bruno',R:'Roditelji',V:'Izvođači'},{label:'Tko poziva'})}${seg('gRsvp',ui.g.rsvp,{all:'Svi odgovori',dolazi:'Dolazi',vjerojatno:'Vjerojatno',vne:'Vjerojatno ne',ne:'Ne dolazi'},{label:'Odgovor'})}<span class="sp"></span>
     <input class="in" id="gq" style="max-width:220px" placeholder="Traži ime…" aria-label="Traži goste" value="${esc(ui.g.q)}"><button class="btn" data-a="addParty">${IC.plus} Dodaj grupu</button><button class="btn ghost" data-a="exportText" data-v="gosti">Izvoz</button></div>
   <div class="plist"><div class="phead"><span></span><span>Grupa</span><span class="hide-s">Tko poziva</span><span class="hide-s">Odgovor</span><span class="hide-s" style="text-align:right">Osoba</span><span></span><span></span><span></span></div><div id="plist" data-sort="p">${renderPartyList()}</div></div></div>`};
 
 /* ---------- rooms ---------- */
 function roomPool(){const q=ui.roomQ.toLowerCase();let html='',n=0;
-  for(const p of state.parties){if(p.side==='V'||p.rsvp==='ne'||p.parked)continue;const ms=p.members.filter(m=>m.roomNeed&&!roomOf(m.id)&&(!q||m.name.toLowerCase().includes(q)||p.name.toLowerCase().includes(q)));if(!ms.length)continue;n+=ms.length;
-    html+=`<div class="pgrp"><div class="pgrp-h" data-pd="party" data-ctx="room" data-pid="${p.id}" title="Povuci cijelu grupu u sobu"><span class="dot side-${p.side}"></span><span class="t">${esc(p.name)}</span><span>${ms.length}</span></div>
+  for(const p of state.parties){if(p.side==='V'||p.parked)continue;const ms=p.members.filter(m=>mr(p,m)!=='ne'&&m.roomNeed&&!roomOf(m.id)&&(!q||m.name.toLowerCase().includes(q)||p.name.toLowerCase().includes(q)));if(!ms.length)continue;n+=ms.length;
+    html+=`<div class="pgrp"><div class="pgrp-h" data-pd="party" data-ctx="room" data-pid="${p.id}" title="Povuci cijelu grupu u sobu"><span class="dot side-${p.side}" title="${esc(SIDES[p.side]||'')}"></span><span class="t">${esc(p.name)}</span><span>${ms.length}</span></div>
       <div class="chips">${ms.map(m=>`<span class="chip g side-${p.side}${ui.selG===m.id?' on':''}" data-pd="guest" data-ctx="room" data-mid="${m.id}" data-a="selG" data-id="${m.id}" role="button" tabindex="0" title="${esc(p.name)}, ${m.roomNights===1?'1 noć':'2 noći'}, ${RPAY[m.roomPay||'mi']}">${esc(m.name)}${m.age==='beba'?' (beba)':''}<small class="cm">${m.roomNights===1?'1n':'2n'}${m.roomPay==='gosti'?' sami':''}</small></span>`).join('')}</div></div>`}
   return {html:html||'<p class="muted it small">Svi koji trebaju sobu su smješteni. Kome treba soba označavaš u Gostima.</p>',n}}
 function roomCard(r){
@@ -1803,7 +1888,7 @@ function roomCard(r){
   let beds='';for(let i=0;i<Math.max(cap,ad.length);i++){const o=ad[i];const extra=i>=T.cap;
     beds+=o?`<div class="bed full side-${o[1].side}" data-pd="occ" data-ctx="room" data-mid="${o[0].id}" title="${esc(o[0].name)}, ${esc(o[1].name)}"><span class="nm">${esc(o[0].name)}</span><button class="x" data-a="unroom" data-id="${o[0].id}" aria-label="Makni ${esc(o[0].name)} iz sobe">${IC.x}</button></div>`:`<div class="bed${extra?' extra':''}">${extra?'pomoćni ležaj':'slobodno'}</div>`}
   return `<article class="card room${c.empty?' empty':''}${r.payer==='gratis'?' free':''}" data-room="${r.id}" data-a="roomClick" data-id="${r.id}">
-    <div class="rh"><span class="rl">${esc(r.label)}</span>${c.empty?'':`<button class="btn ghost sm" data-a="emptyRoom" data-id="${r.id}" title="Makni sve iz sobe">Isprazni</button>`}</div>
+    <div class="rh">${c.empty?'':`<span class="rgrip" data-pd="roomall" data-ctx="room" data-rid="${r.id}" data-label="${esc(r.label)}: ${esc(occ.map(([m])=>m.name).join(', '))}" title="Povuci da premjestiš cijelu sobu" aria-label="Premjesti cijelu sobu">${IC.grip}</span>`}<span class="rl">${esc(r.label)}</span>${c.empty?'':`<button class="btn ghost sm" data-a="emptyRoom" data-id="${r.id}" title="Makni sve iz sobe">Isprazni</button>`}</div>
     <div class="beds">${beds}</div>
     ${bb.length?`<div class="babies">Krevetić: ${bb.map(([m])=>`<span class="chip p-apr" data-pd="occ" data-ctx="room" data-mid="${m.id}" style="cursor:grab;touch-action:none">${esc(m.name)}<button class="x" data-a="unroom" data-id="${m.id}" aria-label="Makni">${IC.x}</button></span>`).join('')}</div>`:''}
     ${r.type==='suite'?`<div class="step">Pomoćni ležaj <button data-a="xbed" data-id="${r.id}" data-v="-1" aria-label="Makni pomoćni ležaj"${num(r.extra)<=0?' disabled':''}>${IC.minus}</button><b>${num(r.extra)}</b><button data-a="xbed" data-id="${r.id}" data-v="1" aria-label="Dodaj pomoćni ležaj"${num(r.extra)>=2?' disabled':''}>${IC.plus}</button></div>`:''}
@@ -1815,9 +1900,14 @@ function roomCard(r){
 const pl=n=>n%10===1&&n%100!==11?'soba':(n%10>=2&&n%10<=4&&(n%100<12||n%100>14))?'sobe':'soba';
 V.sobe=()=>{const R=state.rooms;const pool=roomPool();
   const sec=type=>{const list=R.list.filter(r=>r.type===type);return `<section class="rsec"><div class="rsec-h"><div><h3>${ROOMT[type].n} <span class="muted it" style="font:italic 15px var(--serif);letter-spacing:0;text-transform:none">${list.length} ${pl(list.length)}</span></h3><p>${ROOMT[type].desc}</p></div></div><div class="rooms">${list.map(roomCard).join('')}</div></section>`};
-  return `<div class="wrap wide">${header('Sobe','Hotel ima 19 soba. Povuci ime ili cijelu grupu u krevet, cijena se računa po broju osoba prema cjeniku, a prazne sobe se ne računaju.')}
+  return `<div class="wrap">${header('Sobe','Hotel ima 19 soba. Povuci ime ili cijelu grupu u krevet, a cijelu sobu premjestiš povlačenjem ručke pored naziva sobe. Prazne sobe su uvijek na kraju svake vrste.')}
   <div class="toolbar"><span class="sp"></span><button class="btn ghost" data-a="emptyAll">Isprazni sve sobe</button></div>
-  <section class="card stats"><div><small>Sobe u upotrebi</small><b>${calc('rUsed')}</b></div><div><small>Ukupno</small><b>${calc('rAll')}</b></div><div class="em"><small>Plaćamo mi</small><b>${calc('rWe')}</b></div><div><small>Plaćaju gosti</small><b>${calc('rThey')}</b></div></section>
+  ${(()=>{const L=state.rooms.list;const ty=[['retro','Retro'],['park','Park'],['suite','Gallery Suite']].map(([t,n])=>{const a=L.filter(r=>r.type===t);return [n,a.filter(r=>r.occupants.length).length,a.length]});const used=ty.reduce((a,x)=>a+x[1],0);
+    return `<section class="card kpis">
+      <div class="kpi kpi-hero"><small>Plaćamo mi</small><b>${calc('rWe')}</b><span class="kpi-sub">od ukupno ${calc('rAll')}</span><div class="kpi-em">Gosti sami plaćaju <b>${calc('rThey')}</b></div></div>
+      <div class="kpi"><small>Popunjenost</small><div class="kpi-mid"><b class="kpi-num">${used}</b> <span class="muted">od ${L.length} soba</span></div>${stackBar([[used,'var(--wine)','zauzeto'],[L.length-used,'transparent','slobodno']])}</div>
+      <div class="kpi"><small>Po vrsti sobe</small><ul class="sidelist">${ty.map(([n,u,t])=>`<li><span></span><span>${n}</span><b>${u}/${t}</b><span class="mb"><i style="width:${t?u/t*100:0}%;background:var(--mauve)"></i></span></li>`).join('')}</ul></div>
+    </section>`})()}
   <details class="card" style="padding:16px 24px;margin-bottom:26px"><summary>Uvjeti hotela: popust ${fnum(num(R.discount))||0}%, pomoćni ležaj ${eur(R.extraBed)}, pristojba ${eur2(R.taxRate)} po osobi i noći</summary>
     <div class="fields" style="margin-top:16px">${field('Popust (dogovor s hotelom)',unit('rooms',null,'discount',R.discount,'%'))}${field('Pomoćni ležaj po noći',money('rooms',null,'extraBed',R.extraBed))}${field('Turistička pristojba',money('rooms',null,'taxRate',R.taxRate))}<div class="field"><span class="fl">&nbsp;</span><div style="height:38px;display:flex;align-items:center">${chk('rooms',null,'taxOn',R.taxOn,'Računaj pristojbu')}</div></div></div>
     <div class="fields" style="margin-top:16px">${field('Retro, 1 osoba',money('price','retro1','p',R.prices.retro1))}${field('Retro, 2 osobe',money('price','retro2','p',R.prices.retro2))}${field('Park, 1 osoba',money('price','park1','p',R.prices.park1))}${field('Park, 2 osobe',money('price','park2','p',R.prices.park2))}${field('Suite, 2 osobe',money('price','suite2','p',R.prices.suite2))}${field('Suite, 3 osobe',money('price','suite3','p',R.prices.suite3))}${field('Suite, 4 osobe',money('price','suite4','p',R.prices.suite4))}</div>
@@ -1848,7 +1938,7 @@ function itemHtml(it){const sel=ui.selI===it.id;const fs=fitFs(it.label,it.w,it.
 const itemById=id=>(state.floor.items||[]).find(x=>x.id===id);
 function seatPool(){const q=ui.poolQ.toLowerCase();let html='',n=0;
   for(const p of state.parties){const ms=p.members.filter(m=>seatable(p,m)&&!m.table&&(!q||m.name.toLowerCase().includes(q)||p.name.toLowerCase().includes(q)));if(!ms.length)continue;n+=ms.length;
-    html+=`<div class="pgrp"><div class="pgrp-h" data-pd="party" data-ctx="seat" data-pid="${p.id}" title="Povuci cijelu grupu na stol"><span class="dot side-${p.side}"></span><span class="t">${esc(p.name)}</span><span>${ms.length}</span></div>
+    html+=`<div class="pgrp"><div class="pgrp-h" data-pd="party" data-ctx="seat" data-pid="${p.id}" title="Povuci cijelu grupu na stol"><span class="dot side-${p.side}" title="${esc(SIDES[p.side]||'')}"></span><span class="t">${esc(p.name)}</span><span>${ms.length}</span></div>
       <div class="chips">${ms.map(m=>`<span class="chip g side-${p.side}${ui.selG===m.id?' on':''}" data-pd="guest" data-ctx="seat" data-mid="${m.id}" data-a="selG" data-id="${m.id}" role="button" tabindex="0" title="${esc(p.name)}">${esc(m.name)}</span>`).join('')}</div></div>`}
   return {html:html||'<p class="muted it small">Svi gosti imaju mjesto. Lijepo!</p>',n}}
 function unseatedOptions(){let o='';for(const p of state.parties){const ms=p.members.filter(m=>seatable(p,m)&&!m.table);if(ms.length)o+=`<optgroup label="${esc(p.name)}">${ms.map(m=>`<option value="${m.id}">${esc(m.name)}</option>`).join('')}</optgroup>`}return o}
@@ -1891,7 +1981,7 @@ V.sjedenje=()=>{
       </div></div></div>
       <div class="legend"><span><i style="background:var(--rose2);border-color:var(--wine)"></i>Stella</span><span><i style="background:var(--sage2);border-color:var(--sage)"></i>Bruno</span><span><i style="background:var(--gold2);border-color:var(--apr)"></i>Stellini roditelji</span><span><i style="border-style:dashed;border-color:var(--gold)"></i>Slobodno</span><span style="margin-left:auto" class="it">Prijeđi mišem preko stolice za puno ime.</span></div>
     </section>${inspector()}</div></div>`;
-  return `<div class="wrap wide">${header('Stolovi','Tlocrt restorana i terase prema katalogu hotela. Slaži stolove i goste kako želiš.')}${tools}${body}</div>`;
+  return `<div class="wrap">${header('Stolovi','Tlocrt restorana i terase prema katalogu hotela. Slaži stolove i goste kako želiš.')}${tools}${body}</div>`;
 };
 
 /* ---------- tasks / decisions / timeline / inspo ---------- */
@@ -1924,19 +2014,18 @@ V.odluke=()=>{const list=state.decisions.filter(d=>ui.dFilter==='all'||d.status=
     <div class="ft">${sel('d',d.id,'status',d.status,DST,{label:'Status',pill:1,cls:d.status==='odluceno'?'p-sage':d.status==='razmisljam'?'p-apr':'p-plain'})}</div></section>`).join('')||'<div class="empty">Ovdje još nema kartica.</div>'}</div></div>`};
 V.rucak=()=>{
   const R=state.rucak;
-  const parties=state.parties.filter(p=>p.side!=='V'&&p.rsvp!=='ne'&&!p.parked);
+  const parties=state.parties.filter(p=>p.side!=='V'&&!p.parked&&p.members.some(m=>mr(p,m)!=='ne'));
   return `<div class="wrap">${header('Svatovski ručak','Nedjeljni ručak za goste koji ostaju. Označi tko ostaje ovdje ili u Gostima, a iznos ide u budžet kroz formulu.')}
-  <section class="card stats">
-    <div class="em"><small>Na ručku</small><b>${calc('lunchN')}</b></div>
-    <div><small>Cijena po osobi</small><div style="max-width:140px;margin:4px auto 0">${money('rucak',null,'price',R.price,{label:'Cijena po osobi'})}</div></div>
-    <div><small>Dodatne osobe</small><div style="max-width:140px;margin:4px auto 0">${unit('rucak',null,'extra',R.extra,'os.',{label:'Dodatne osobe'})}</div></div>
-    <div class="em"><small>Ukupno</small><b>${calc('lunchT')}</b></div>
+  <section class="card kpis">
+    <div class="kpi kpi-hero"><small>Ručak ukupno</small><b>${calc('lunchT')}</b><span class="kpi-sub"><span data-calc="lunchN">${CALC.lunchN()}</span> osoba na ručku</span></div>
+    <div class="kpi"><small>Cijena po osobi</small><div style="max-width:160px">${money('rucak',null,'price',R.price,{label:'Cijena po osobi'})}</div><span class="muted it small">npr. svečani meni 30 do 37 €</span></div>
+    <div class="kpi"><small>Dodatne osobe</small><div style="max-width:160px">${unit('rucak',null,'extra',R.extra,'os.',{label:'Dodatne osobe'})}</div><span class="muted it small">koji nisu na popisu gostiju</span></div>
   </section>
   <div class="lunch-layout">
     <div>
       <div class="toolbar"><button class="btn ghost sm" data-a="exportText" data-v="rucak">Izvoz</button><button class="btn ghost sm" data-a="lunchPreset" data-v="two">Označi sve s 2 noćenja</button><button class="btn ghost sm" data-a="lunchPreset" data-v="room">Označi sve koji spavaju u hotelu</button><button class="btn ghost sm" data-a="lunchPreset" data-v="none">Poništi sve</button></div>
-      <div class="lunch-grid">${parties.map(p=>{const ms=p.members.filter(m=>m.age!=='beba');if(!ms.length)return '';const all=ms.every(m=>m.lunch);const some=ms.some(m=>m.lunch);return `<section class="card lcard${some?' on':''}">
-        <label class="chk lh"><input type="checkbox" data-ac="lunchParty" data-id="${p.id}"${all?' checked':''} aria-label="Cijela grupa"><span class="dot side-${p.side}"></span><span class="ell">${esc(p.name)}</span></label>
+      <div class="lunch-grid">${parties.map(p=>{const ms=p.members.filter(m=>m.age!=='beba'&&mr(p,m)!=='ne');if(!ms.length)return '';const all=ms.every(m=>m.lunch);const some=ms.some(m=>m.lunch);return `<section class="card lcard${some?' on':''}">
+        <label class="chk lh"><input type="checkbox" data-ac="lunchParty" data-id="${p.id}"${all?' checked':''} aria-label="Cijela grupa"><span class="dot side-${p.side}" title="${esc(SIDES[p.side]||'')}"></span><span class="ell">${esc(p.name)}</span></label>
         <div class="lm">${ms.map(m=>chk('m',m.id,'lunch',m.lunch,esc(m.name))).join('')}</div></section>`}).join('')}</div>
     </div>
     <aside class="frame sticky lunch-side">
@@ -1954,7 +2043,7 @@ V.tijek=()=>`<div class="wrap">${header('Tijek dana','Cijeli vikend, od druženj
     </div><div class="addline"><button class="btn ghost sm" data-a="addTl" data-v="${k}">${IC.plus} Dodaj stavku</button></div></section>`).join('')}</div>`;
 function imgSrc(it){if(it.seed!=null&&SEED_IMGS[it.seed])return SEED_IMGS[it.seed].src;if(it.asset)return it.url||('/_blob/'+it.asset);if(it.idb)return idbUrls[it.id]||'';return it.src||''}
 V.inspo=()=>{const I=state.inspo,f=ui.iFilter;const list=I.items.filter(it=>f==='Sve'||(f==='Favoriti'?it.fav:it.cat===f));const counts=c=>I.items.filter(it=>it.cat===c).length;
-  return `<div class="wrap wide">${header('Inspiracija','Skupljaj slike po kategorijama i srcem označi favorite.')}
+  return `<div class="wrap">${header('Inspiracija','Skupljaj slike po kategorijama i srcem označi favorite.')}
   <div class="toolbar center"><div class="seg" role="group">${['Sve','Favoriti',...I.cats].map(c=>`<button data-a="iFilter" data-v="${esc(c)}" aria-pressed="${f===c}">${esc(c)}${c==='Sve'?'':c==='Favoriti'?' '+I.items.filter(i=>i.fav).length:counts(c)?' '+counts(c):''}</button>`).join('')}</div><button class="btn ghost sm" data-a="addCat">${IC.plus} Kategorija</button><button class="btn" data-a="upload">${IC.plus} Dodaj slike</button></div>
   <div class="masonry" data-sort="img">${list.map(it=>`<figure class="frame pol" data-sid="${it.id}">
     <img class="pimg" src="${esc(imgSrc(it))}" ${it.idb&&!idbUrls[it.id]?`data-idb="${it.id}"`:''} alt="${esc(it.title)}" loading="lazy" data-a="lightbox" data-id="${it.id}">
@@ -2013,7 +2102,8 @@ function setField(el){
   if(c==='ui'){try{localStorage.setItem(LS+'-ui',JSON.stringify({hideDone:ui.hideDone}))}catch(e){}return}
   if(c==='t'&&f==='type'){const cap=TT[v].seats;for(const p of state.parties)for(const m of p.members)if(m.table===id&&m.seat>=cap){m.table=null;m.seat=null}}
   if(c==='m'&&f==='roomNeed'&&!v)unroom(id);
-  if(c==='p'&&f==='rsvp'&&v==='ne'){for(const m of t.members){m.table=null;m.seat=null}}
+  if(c==='p'&&f==='rsvp'){if(v==='mix'){syncRsvp(t)}else for(const m of t.members){m.rsvp=v;if(v==='ne'){m.table=null;m.seat=null;m.lunch=false;unroom(m.id)}}}
+  if(c==='m'&&f==='rsvp'){const [m,p]=findMember(id);if(v==='ne'){m.table=null;m.seat=null;m.lunch=false;unroom(m.id)}syncRsvp(p)}
   save();
 }
 function arrFor(c,cont){
@@ -2042,6 +2132,15 @@ function placeMember(mid,tid,i){const [m]=findMember(mid);if(!m)return;const cur
 function firstFree(tid,start=0){const t=tableById(tid);if(!t)return -1;const occ=seatMapAll()[tid]||{};const n=TT[t.type].seats;for(let k=0;k<n;k++){const i=(start+k)%n;if(!occ[i])return i}return -1}
 function placeParty(pid,tid,start=0){const p=target('p',pid);let left=0;for(const m of p.members){if(!seatable(p,m)||m.table)continue;const i=firstFree(tid,start);if(i<0){left++;continue}m.table=tid;m.seat=i}if(left)toast(left===1?'Jedna osoba nije stala za ovaj stol.':left+' osobe nisu stale za ovaj stol.')}
 function unseat(m){m.table=null;m.seat=null}
+const RFIELDS=['occupants','nights','payer','extra','note'];
+function compactRooms(){if(!state.rooms||!state.rooms.list)return;for(const type of ['retro','park','suite']){const L=state.rooms.list.filter(r=>r.type===type);
+  const full=L.filter(r=>r.occupants&&r.occupants.length).map(r=>Object.fromEntries(RFIELDS.map(f=>[f,JSON.parse(JSON.stringify(r[f]??null))])));
+  L.forEach((r,i)=>{const d=full[i];if(d){for(const f of RFIELDS)r[f]=d[f]}else{r.occupants=[];r.extra=0;r.nights=2;r.payer='mi';r.note=''}})}}
+function moveRoom(fromId,toId){if(fromId===toId)return;const a=target('r',fromId),b=target('r',toId);if(!a||!b)return;
+  const da=Object.fromEntries(RFIELDS.map(f=>[f,a[f]])),db=Object.fromEntries(RFIELDS.map(f=>[f,b[f]]));
+  for(const f of RFIELDS){a[f]=db[f];b[f]=da[f]}
+  if(a.type!=='suite')a.extra=0;if(b.type!=='suite')b.extra=0;
+  toast(b.occupants.length&&a.occupants.length?`Zamijenjeno: ${a.label} i ${b.label}`:`Premješteno u ${b.label}`)}
 function unroom(mid){state.rooms.list.forEach(r=>r.occupants=r.occupants.filter(x=>x!==mid))}
 function placeInRoom(mid,rid){const r=target('r',rid);const [m]=findMember(mid);if(!r||!m)return false;if(r.occupants.includes(mid))return true;
   if(m.age!=='beba'){const ad=roomPeople(r).filter(([x])=>x.age!=='beba').length;if(ad>=roomCap(r)){toast(r.type==='suite'&&num(r.extra)<2?'Soba je puna. Dodaj pomoćni ležaj pa probaj opet.':'Soba je puna.');return false}}
@@ -2059,7 +2158,7 @@ const A={
   addBudget(el){const r={id:uid(),cat:el.dataset.v||'ostalo',name:'',mode:'fixed',est:0,formula:'',actual:0,paid:0,note:'',pre:{mode:'none',val:0,due:''},status:'procjena',pays:[],before:0,beforeDue:'',payWhen:'poslije',depMode:'pct',depVal:30};state.budget.push(r);save();render();focusNew(`[data-c="b"][data-id="${r.id}"][data-f="name"]`)},
   addBCat(){const c={id:uid(),name:'Nova kategorija'};state.budgetCats.push(c);save();render();focusNew(`[data-c="bc"][data-id="${c.id}"]`)},
   insVar(el){const f=ui.lastFx&&document.body.contains(ui.lastFx)?ui.lastFx:null;if(!f){toast('Prvo klikni u polje s formulom.');return}const s=f.selectionStart??f.value.length,e=f.selectionEnd??s;const ins=el.dataset.v;f.value=f.value.slice(0,s)+ins+f.value.slice(e);f.focus();f.setSelectionRange(s+ins.length,s+ins.length);setField(f);softUpdate()},
-  addParty(){const side=['S','B','R','V'].includes(ui.g.side)?ui.g.side:'S';const p={id:uid(),name:'',side,rsvp:'ceka',note:'',couple:false,members:[{id:uid(),name:'',age:'odrasli',diet:'',table:null,seat:null}]};const idx=state.parties.findIndex(x=>!x.couple);state.parties.splice(Math.max(0,idx),0,p);ui.open.add(p.id);ui.g.q='';save();render();focusNew(`[data-c="p"][data-id="${p.id}"][data-f="name"]`)},
+  addParty(){const side=['S','B','R','V'].includes(ui.g.side)?ui.g.side:'S';const p={id:uid(),name:'',side,rsvp:'vjerojatno',note:'',couple:false,members:[{id:uid(),name:'',age:'odrasli',diet:'',table:null,seat:null,rsvp:'vjerojatno'}]};const idx=state.parties.findIndex(x=>!x.couple);state.parties.splice(Math.max(0,idx),0,p);ui.open.add(p.id);ui.g.q='';save();render();focusNew(`[data-c="p"][data-id="${p.id}"][data-f="name"]`)},
   toggleParty(el){const id=el.dataset.id;ui.open.has(id)?ui.open.delete(id):ui.open.add(id);render()},
   addMember(el){const p=target('p',el.dataset.id);const m={id:uid(),name:'',age:'odrasli',diet:'',table:null,seat:null};p.members.push(m);save();render();focusNew(`[data-c="m"][data-id="${m.id}"][data-f="name"]`)},
   gSide(el){ui.g.side=el.dataset.v;render()},gRsvp(el){ui.g.rsvp=el.dataset.v;render()},
@@ -2140,7 +2239,7 @@ const A={
   editDue(el){ui.editDue=el.dataset.id;render();const i=$(`input.due[data-id="${el.dataset.id}"]`);if(i){i.focus();try{i.showPicker&&i.showPicker()}catch(e){}}},
   tFilter(el){ui.tFilter=el.dataset.v;render()},
   partyAll(el){const p=target('p',el.dataset.id);const k=el.dataset.v;const val=!p.members.every(m=>m[k]);for(const m of p.members){m[k]=val;if(k==='roomNeed'&&!val)unroom(m.id)}save();render();toast(k==='lunch'?(val?'Svi označeni za ručak':'Ručak poništen'):(val?'Svima treba soba':'Soba poništena'))},
-  lunchPreset(el){const v=el.dataset.v;withUndo(v==='none'?'Ručak poništen':'Označeno',()=>{for(const p of state.parties){if(p.side==='V'||p.rsvp==='ne')continue;for(const m of p.members){if(m.age==='beba')continue;const r=roomOf(m.id);
+  lunchPreset(el){const v=el.dataset.v;withUndo(v==='none'?'Ručak poništen':'Označeno',()=>{for(const p of state.parties){if(p.side==='V')continue;for(const m of p.members){if(m.age==='beba'||mr(p,m)==='ne')continue;const r=roomOf(m.id);
     if(v==='none')m.lunch=false;else if(v==='two'){if(r&&r.nights===2)m.lunch=true}else if(v==='room'){if(r)m.lunch=true}}}})},
   switchPlan(el){switchPlan(el.dataset.id)},
   newPlan(){const cur=state.plans.find(p=>p.id===state.activePlan);cur.data=snapshotPlan();const p={id:uid(),name:'Opcija '+(state.plans.length+1),data:null};
@@ -2349,6 +2448,9 @@ function endDrag(s,e){document.body.style.userSelect='';
     else{const tid=t.dataset.seat?t.dataset.seat.split(':')[0]:t.dataset.tbl;const idx=t.dataset.seat?+t.dataset.seat.split(':')[1]:null;
       if(s.kind==='party')placeParty(s.src.dataset.pid,tid,idx||0);else{const i=idx!=null?idx:firstFree(tid);if(i<0){toast('Stol je pun.');return}placeMember(s.src.dataset.mid,tid,i)}ui.selT=tid}
     ui.selG=null;save();render();return}
+  if(s.ctx==='room'&&s.kind==='roomall'){
+    if(t.dataset.pool==='room'){const r=target('r',s.src.dataset.rid);withUndo(r.label+' ispražnjena',()=>{r.occupants=[];r.extra=0});return}
+    if(t.dataset.room){moveRoom(s.src.dataset.rid,t.dataset.room);save();render()}return}
   if(s.ctx==='room'){
     if(t.dataset.pool==='room'){if(s.kind==='party')target('p',s.src.dataset.pid).members.forEach(m=>unroom(m.id));else unroom(s.src.dataset.mid)}
     else{if(s.kind==='party')placePartyInRoom(s.src.dataset.pid,t.dataset.room);else placeInRoom(s.src.dataset.mid,t.dataset.room)}
@@ -2357,7 +2459,7 @@ function endDrag(s,e){document.body.style.userSelect='';
 
 /* ================= boot ================= */
 $('#modal').addEventListener('click',e=>{if(e.target.id==='modal')A.closeModal()});
-try{postMigrate()}catch(e){console.error(e)}ensureFeed();render(false);updThemeBtn();setStatus('Spremljeno na uređaju');initCloud();
+try{postMigrate()}catch(e){console.error(e)}try{compactRooms()}catch(e){}ensureFeed();render(false);updThemeBtn();setStatus('Spremljeno na uređaju');initCloud();
 </script>
 </body>
 </html>
