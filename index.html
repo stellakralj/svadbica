@@ -673,6 +673,7 @@ b,strong,.kv b{font-weight:500}
 .mi.ins-a{box-shadow:0 2px 0 var(--wine)}
 .expbtn{position:absolute;right:0;top:50%;transform:translateY(-50%)}
 @media (max-width:1180px){.menu-layout2{grid-template-columns:minmax(0,1fr)}.catpanel.sticky{position:static;max-height:none}.expbtn{position:static;transform:none}}
+.cakefoot{margin-top:20px;padding-top:16px;border-top:1px dotted var(--line2)}
 </style>
 </head>
 <body>
@@ -1492,13 +1493,14 @@ V.meni=()=>{
       <article class="frame mcard"><div class="mh"><h3>Svadbene torte</h3><div class="mprice">Cijena na upit, ovisno o odabiru i broju osoba</div></div>
         <div class="course" style="columns:2 180px;column-gap:20px">${CAT_TORTE.map(t=>`<div style="break-inside:avoid;padding:2px 0">${chk('cakepick',null,t,h.cakePick.includes(t),esc(t))}</div>`).join('')}</div>
         <p class="muted it small" style="margin:12px 0 0">Mogu od fondanta, šlaga ili butter creama.</p>
-        <div class="fields" style="margin-top:16px">${field('Cijena torti (na upit)',money('hotel',null,'cakePrice',h.cakePrice))}</div>
-        <div style="margin-top:12px">${chk('hotel',null,'ownCake',h.ownCake,'Donosimo svoju tortu (naknada 50 €)')}</div>
-      </article>
-      <article class="frame mcard"><div class="mt" style="text-align:center"><span class="script" style="font-size:44px;color:var(--wine);display:block;line-height:1">Bilješke za tortu</span><p class="muted it small" style="margin:6px 0 12px">Naše želje i slike torti koje nam se sviđaju.</p></div>
-        ${blist('cakes',h.cakes,{ph:'Nova želja, pa Enter'})}
+        <h4 class="sub-h">Naše napomene i inspiracija</h4>
+        ${blist('cakes',h.cakes,{ph:'Napomena ili želja, pa Enter'})}
         <div class="cimgs">${h.cakeImgs.map(c=>`<figure class="cimg"><img src="${esc(imgSrc(c))}" ${c.idb&&!idbUrls[c.id]?`data-idb="${c.id}"`:''} alt="Inspiracija za tortu" data-a="cakeLight" data-id="${c.id}"><button class="ib del" data-a="cakeImgDel" data-id="${c.id}" aria-label="Obriši sliku">${IC.x}</button></figure>`).join('')}
           <button class="cadd" data-a="cakeUpload">${IC.img}<span>Dodaj sliku</span></button></div>
+        <div class="cakefoot">
+          <div class="fields">${field('Cijena torti (na upit)',money('hotel',null,'cakePrice',h.cakePrice))}</div>
+          <div style="margin-top:12px">${chk('hotel',null,'ownCake',h.ownCake,'Ništa od ovoga, donosimo svoju tortu (naknada 50 €)')}</div>
+        </div>
       </article>
     </div>`;
   }else{
