@@ -1083,6 +1083,21 @@ body.on-home{overflow:hidden}
 textarea.ta{white-space:pre-wrap;overflow-wrap:anywhere;word-break:normal;overflow:hidden;field-sizing:content}
 .blist .fld.ta,.trow .txt{white-space:pre-wrap!important;text-overflow:clip}
 .rsplit{font:italic 500 14px/1.3 var(--serif);color:var(--ink2)}.rsplit em{font-style:italic;color:var(--wine);font-weight:600}
+/* ===== v42 seating ===== */
+.surf .tno{display:inline-grid;place-items:center;min-width:18px;height:18px;padding:0 4px;margin-right:5px;border-radius:999px;background:var(--wine);color:var(--wine-ink);font:600 10px/1 var(--label);letter-spacing:0;vertical-align:1px}
+.surf.head .tno{writing-mode:horizontal-tb}
+.chair{overflow:visible}
+.chair .kd{position:absolute;right:-5px;top:-5px;min-width:10px;height:10px;border-radius:999px;background:var(--gold);border:1.5px solid var(--paper);font:700 7px/7px var(--label);color:#fff;text-align:center;padding:0 2px;font-style:normal}
+.chair .cx{position:absolute;left:50%;top:-16px;transform:translateX(-50%);width:18px;height:18px;border-radius:50%;border:1px solid var(--line2);background:var(--paper);color:var(--wine);display:grid;place-items:center;padding:0;cursor:pointer;z-index:5;box-shadow:var(--sh1)}
+.chair .cx svg{width:9px;height:9px}
+.srow{display:grid;grid-template-columns:24px minmax(0,1fr) auto;gap:8px;align-items:center}
+.srow .sx{display:flex;gap:2px;align-items:center}
+.kidb{position:relative;color:var(--soft)}.kidb.on{color:var(--gold)}
+.kidb b{position:absolute;right:-2px;top:-2px;font:700 9px/1 var(--label);color:var(--gold)}
+.tgroups{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;margin:2px 0 12px;padding-bottom:10px;border-bottom:1px dotted var(--line2)}
+.tgroups .fl{font:500 10px/1.3 var(--label);letter-spacing:.13em;text-transform:uppercase;color:var(--soft);margin-right:4px}
+.tgrp{display:inline-flex;align-items:center;gap:6px;font-size:14px;background:var(--paper2);border-radius:999px;padding:2px 4px 2px 10px}
+.tgrp .ib{width:22px;height:22px}
 </style>
 </head>
 <body>
@@ -1380,7 +1395,7 @@ function seed(){
   const ins=SEED_IMGS.map((s,i)=>({id:'seed'+i,seed:i,title:s.title,cat:catMap[s.cat]||'Ostalo',fav:false,note:''}));
   const MI=(course,text,src='Moja ideja')=>({id:uid(),course,text,src,note:'',time:''});
   return {
-    v:18,updatedAt:0,payOrder:[],paySort:'due',
+    v:19,updatedAt:0,payOrder:[],paySort:'due',
     plans:[{id:'p1',name:'Opcija 1',data:null}],activePlan:'p1',
     rucak:{price:20,extra:0,time:'13:00',place:'',items:items(['Lagani meni za goste koji ostaju','Rođendanska torta'])},
     settings:{couple:'Stella & Bruno',date:'2027-10-09',time:'15:30',place:'Park Boutique Hotel i crkva sv. Nikole'},
@@ -1434,6 +1449,7 @@ function migrate(s){
     s.v=16}
   if(s.v<17){for(const p of s.parties)for(const m of p.members)if(!m.rsvp)m.rsvp=p.rsvp==='mix'?'ceka':(p.rsvp||'ceka');s.v=17}
   if(s.v<18){for(const p of s.parties){if(p.rsvp==='ceka')p.rsvp='vjerojatno';for(const m of p.members)if(m.rsvp==='ceka')m.rsvp='vjerojatno'}s.v=18}
+  if(s.v<19){for(const p of s.parties)for(const m of p.members)if(m.kids===undefined)m.kids=0;for(const t of s.tables||[])if(t.num===undefined)t.num='';for(const pl of s.plans||[])if(pl.data&&pl.data.tables)for(const t of pl.data.tables)if(t.num===undefined)t.num='';s.v=19}
   for(const k of Object.keys(d))if(s[k]===undefined)s[k]=d[k];
   s.hotel=Object.assign({},d.hotel,s.hotel);
   s.rooms=Object.assign({},d.rooms,s.rooms);
@@ -2147,8 +2163,8 @@ function tableHtml(t,map){
   const halfH=rot?g.w/2:g.h/2;const sh=TT[t.type].shape;const off=(sh==='round'||(sh==='long'&&!rot))?44:20;
   return `<div class="tb${sel?' sel':''}" data-tid="${t.id}" style="left:${t.x}px;top:${t.y}px">
     <div style="position:absolute;left:0;top:0;transform:rotate(${rot}deg)">
-    <div class="surf${TT[t.type].shape==='round'?' round':''}${TT[t.type].shape==='head'?' head':''}" data-pd="table" data-tbl="${t.id}" data-a="selTable" data-id="${t.id}" tabindex="0" role="button" aria-label="${esc(t.name)}, ${n} od ${cap} mjesta. Delete briše stol." style="width:${g.w}px;height:${g.h}px"><span class="tn">${esc(t.name)}</span><span class="tc${n===cap?' full':''}">${n}/${cap}</span></div>
-    ${g.ch.map((c,i)=>{const o=occ[i];const key=t.id+':'+i;return `<div class="chair${o?' on side-'+o[1].side:''}${ui.selSeat===key?' hl':''}" data-seat="${key}" data-a="chair" role="button" tabindex="-1" ${o?`data-pd="seat" data-ctx="seat" data-mid="${o[0].id}" title="${esc(o[0].name)}, ${esc(o[1].name)}"`:`title="Slobodno mjesto ${i+1}"`} style="left:${c.x}px;top:${c.y}px"><span style="transform:rotate(${-rot}deg)">${o?esc(initials(o[0].name)):''}</span></div>`}).join('')}
+    <div class="surf${TT[t.type].shape==='round'?' round':''}${TT[t.type].shape==='head'?' head':''}" data-pd="table" data-tbl="${t.id}" data-a="selTable" data-id="${t.id}" tabindex="0" role="button" aria-label="${esc(t.name)}, ${n} od ${cap} mjesta. Delete briše stol." style="width:${g.w}px;height:${g.h}px"><span class="tn">${t.num?`<b class="tno">${esc(t.num)}</b>`:""}${esc(t.name)}</span><span class="tc${n===cap?' full':''}">${n}/${cap}</span></div>
+    ${g.ch.map((c,i)=>{const o=occ[i];const key=t.id+':'+i;return `<div class="chair${o?' on side-'+o[1].side:''}${ui.selSeat===key?' hl':''}" data-seat="${key}" data-a="chair" role="button" tabindex="-1" ${o?`data-pd="seat" data-ctx="seat" data-mid="${o[0].id}" title="${esc(o[0].name)}, ${esc(o[1].name)}"`:`title="Slobodno mjesto ${i+1}"`} style="left:${c.x}px;top:${c.y}px"><span style="transform:rotate(${-rot}deg)">${o?esc(initials(o[0].name)):''}</span>${o&&num(o[0].kids)?`<i class="kd" title="${num(o[0].kids)===1?'Dijete uz osobu':num(o[0].kids)+' djece uz osobu'}">${num(o[0].kids)>1?num(o[0].kids):''}</i>`:''}${o&&ui.selSeat===key?`<button class="cx" data-a="unseatM" data-id="${o[0].id}" title="Makni sa stola" aria-label="Makni ${esc(o[0].name)} sa stola">${IC.x}</button>`:''}</div>`}).join('')}
     </div>
     ${sel?`<div class="tbar" style="left:0;top:${-(halfH+off)}px"><button data-a="rotate" data-id="${t.id}" title="Okreni" aria-label="Okreni stol">${IC.rot}</button><button data-a="clearTable" data-id="${t.id}" title="Isprazni stol" aria-label="Isprazni stol">${IC.empty}</button><button class="d" data-a="delTable" data-id="${t.id}" title="Obriši stol" aria-label="Obriši stol">${IC.x}</button></div>`:''}
   </div>`;
@@ -2176,10 +2192,13 @@ function inspector(){
   const t=tableById(ui.selT);
   if(!t)return `<section class="card insp" style="text-align:center"><h3 style="margin-bottom:8px">Odabrani stol</h3><p class="muted it" style="margin:0">Klikni stol na tlocrtu da vidiš tko sjedi za njim. Odabrani stol možeš okrenuti, isprazniti ili obrisati ikonama iznad njega. Elementi poput buffeta ili slatkog stola dodaju se iz trake gore.</p></section>`;
   const map=seatMapAll()[t.id]||{},cap=TT[t.type].seats,opts=unseatedOptions();
-  return `<section class="card insp"><div class="insp-h">${inp('t',t.id,'name',t.name,{ph:'Naziv stola'})}
+  const grp={};for(const p of state.parties)for(const m of p.members)if(m.table===t.id){(grp[p.id]=grp[p.id]||{p,n:0}).n++}
+  return `<section class="card insp"><div class="insp-h"><span style="width:96px">${unit('t',t.id,'num',t.num,'br.',{label:'Broj stola'})}</span>${inp('t',t.id,'name',t.name,{ph:'Naziv stola'})}
       ${sel('t',t.id,'type',t.type,Object.fromEntries(Object.entries(TT).map(([k,v])=>[k,v.n])),{label:'Vrsta stola'})}
       <button class="btn ghost sm" data-a="rotate" data-id="${t.id}">${IC.rot} Okreni</button><button class="btn ghost sm" data-a="clearTable" data-id="${t.id}">Isprazni</button><button class="btn sm" data-a="delTable" data-id="${t.id}">${IC.x} Obriši stol</button></div>
-    <div class="seatlist">${[...Array(cap)].map((_,i)=>{const o=map[i];return `<label class="srow${ui.selSeat===t.id+':'+i?' hl':''}"><span class="sn">${i+1}</span><select class="in" data-ac="seatSel" data-id="${t.id}" data-v="${i}" aria-label="Mjesto ${i+1}"><option value="">Slobodno</option>${o?`<option value="${o[0].id}" selected>${esc(o[0].name)}</option>`:''}${opts}</select></label>`}).join('')}</div></section>`;
+    ${Object.keys(grp).length?`<div class="tgroups"><span class="fl">Grupe za stolom</span>${Object.values(grp).map(({p,n})=>`<span class="tgrp"><span class="dot side-${p.side}"></span>${esc(p.name||'Grupa')} <span class="muted">(${n})</span><button class="ib" data-a="unseatGroup" data-id="${p.id}" data-t="${t.id}" title="Makni cijelu grupu sa stola" aria-label="Makni grupu ${esc(p.name)} sa stola">${IC.x}</button></span>`).join('')}</div>`:''}
+    <div class="seatlist">${[...Array(cap)].map((_,i)=>{const o=map[i];return `<div class="srow${ui.selSeat===t.id+':'+i?' hl':''}"><span class="sn">${i+1}</span><select class="in" data-ac="seatSel" data-id="${t.id}" data-v="${i}" aria-label="Mjesto ${i+1}"><option value="">Slobodno</option>${o?`<option value="${o[0].id}" selected>${esc(o[0].name)}</option>`:''}${opts}</select>${o?`<span class="sx"><button class="ib kidb${num(o[0].kids)?' on':''}" data-a="kidPlus" data-id="${o[0].id}" title="Dodaj dijete ili bebu uz ovu osobu (nema svoje mjesto)" aria-label="Dodaj dijete uz osobu">${IC.plus}${num(o[0].kids)?`<b>${num(o[0].kids)}</b>`:''}</button>${num(o[0].kids)?`<button class="ib" data-a="kidMinus" data-id="${o[0].id}" title="Makni dijete" aria-label="Makni dijete">−</button>`:''}<button class="ib del" data-a="unseatM" data-id="${o[0].id}" title="Makni sa stola" aria-label="Makni sa stola">${IC.x}</button></span>`:''}</div>`}).join('')}</div>
+    <p class="muted it small" style="margin:8px 0 0">+ označava dijete ili bebu koja sjedi uz osobu (u krilu ili hranilici). Na tlocrtu se prikaže kao mala točka uz stolicu.</p></section>`;
 }
 V.sjedenje=()=>{
   const pool=seatPool(),map=seatMapAll(),d=state.floor.dance;
@@ -2190,14 +2209,14 @@ V.sjedenje=()=>{
   const plans=`<div class="ptabs" role="tablist" aria-label="Verzije rasporeda">${state.plans.map(p=>p.id===state.activePlan?`<span class="ptab on" role="tab" aria-selected="true"><input class="fld" data-c="plan" data-id="${p.id}" data-f="name" value="${esc(p.name)}" aria-label="Naziv verzije" size="${Math.max(6,p.name.length)}">${state.plans.length>1?`<button class="x" data-a="delPlan" data-id="${p.id}" aria-label="Obriši verziju">${IC.x}</button>`:''}</span>`:`<button class="ptab" role="tab" aria-selected="false" data-a="switchPlan" data-id="${p.id}">${esc(p.name)}</button>`).join('')}<button class="ptab add" data-a="newPlan" title="Nova verzija s osnovnim tlocrtom">${IC.plus} Nova verzija</button><button class="ptab add" data-a="copyPlan" title="Kopija trenutne verzije za prepravke">Kopiraj ovu verziju</button></div>`;
   const tools=plans+`<div class="toolbar"><select class="in" id="presetSel" aria-label="Raspored iz kataloga">${Object.entries(PRESETS).map(([k,p])=>`<option value="${k}"${state.floor.layout===k?' selected':''}>${esc(p.n)}</option>`).join('')}</select><button class="btn ghost" data-a="applyPreset">Postavi raspored</button><span class="sp"></span><span class="muted it">${seated} od ${seatN} gostiju ima mjesto, ${seats} stolica</span>${seg('seatView',ui.seatView,{plan:'Tlocrt',list:'Popis po stolovima'})}</div>`;
   let body;
-  if(ui.seatView==='list')body=`<div class="tlist">${state.tables.map(t=>{const o=map[t.id]||{},cap=TT[t.type].seats;return `<section class="frame" style="padding:24px"><div class="card-h" style="margin-bottom:0"><h3>${esc(t.name)}</h3><span class="pill p-plain">${Object.keys(o).length}/${cap}</span></div><ol>${[...Array(cap)].map((_,i)=>o[i]?`<li>${esc(o[i][0].name)}</li>`:'<li class="free">slobodno</li>').join('')}</ol></section>`}).join('')}</div>`;
+  if(ui.seatView==='list')body=`<div class="tlist">${[...state.tables].sort((a,b)=>{const x=num(a.num)||9999,y=num(b.num)||9999;return x-y||String(a.name).localeCompare(String(b.name),'hr',{numeric:true})}).map(t=>{const o=map[t.id]||{},cap=TT[t.type].seats;return `<section class="frame" style="padding:24px"><div class="card-h" style="margin-bottom:0"><h3>${t.num?esc(t.num)+'. ':''}${esc(t.name)}</h3><span class="pill p-plain">${Object.keys(o).length}/${cap}</span></div><ol>${[...Array(cap)].map((_,i)=>o[i]?`<li>${esc(o[i][0].name)}${num(o[i][0].kids)?` <span class="muted it">+ ${num(o[i][0].kids)===1?'dijete':num(o[i][0].kids)+' djece'}</span>`:''}</li>`:'<li class="free">slobodno</li>').join('')}</ol></section>`}).join('')}</div>`;
   else body=`<div class="seat-split">
     <aside class="card pool sticky" data-pool="seat"><div class="card-h" style="margin-bottom:8px"><h3>Bez mjesta</h3><span class="pill p-plain">${pool.n}</span></div><p class="pool-hint">Povuci ime na stolicu, ili cijelu grupu (naslov) na stol.</p>${poolFilter()}
       <input class="in" id="poolQ" placeholder="Traži…" aria-label="Traži goste bez mjesta" value="${esc(ui.poolQ)}"><div id="poolList">${pool.html}</div></aside>
     <div style="min-width:0"><section class="card floorcard">
       <div class="ftools"><span class="lbl">Stol</span>${palette}<span class="lbl" style="margin-left:6px">Element</span><button class="pal" data-pd="newitem" data-shape="rect" data-label="Element" data-a="addItem" data-v="rect" title="Povuci na tlocrt ili klikni"><i style="width:16px;height:10px"></i>Pravokutnik</button><button class="pal" data-pd="newitem" data-shape="round" data-label="Element" data-a="addItem" data-v="round" title="Povuci na tlocrt ili klikni"><i style="width:12px;height:12px;border-radius:50%"></i>Krug</button><span class="sp"></span>
         <span class="zoom"><button class="ib" data-a="zoom" data-v="-1" aria-label="Umanji">${IC.minus}</button><span id="zlabel">100%</span><button class="ib" data-a="zoom" data-v="1" aria-label="Uvećaj">${IC.plus}</button><button class="btn ghost sm" data-a="zoom" data-v="0">Prilagodi</button></span></div>
-      <div class="fwrap" id="fwrap"><div class="fsize" id="fsize"><div class="floor" id="floor" data-a="floorBg">
+      <div class="fwrap" id="fwrap" data-ks="fwrap"><div class="fsize" id="fsize"><div class="floor" id="floor" data-a="floorBg">
         <div class="zone hall"><span class="zl">Restoran</span></div><div class="zone terr"><span class="zl">Terasa</span></div>
         <div class="door" style="left:192px"></div><div class="door" style="left:626px"></div>
         <div class="dance" data-pd="dance" style="left:${d.x}px;top:${d.y}px;width:${d.w}px;height:${d.h}px"><span>Plesni podij</span></div>
@@ -2285,10 +2304,11 @@ V.inspo=()=>{const I=state.inspo,f=ui.iFilter;const list=I.items.filter(it=>f===
 function renderNav(){const mono=$('.mono');if(mono&&state.settings.couple)mono.textContent=state.settings.couple;document.title=(state.settings.couple||'Plan vjenčanja')+': plan vjenčanja';const nb=$('#navbtn');if(nb)nb.innerHTML=esc((TABS.find(t=>t[0]===ui.tab)||['','Izbornik'])[1])+' '+IC.chev;$('#nav').innerHTML=TABS.map(([k,n])=>`<button data-a="tab" data-v="${k}"${ui.tab===k?' aria-current="page"':''}>${n}</button>`).join('')}
 function render(keepScroll){
   $('#main').classList.toggle('home',ui.tab==='pregled');document.body.classList.toggle('on-home',ui.tab==='pregled');
-  const y=window.scrollY;const ks={};$$('[data-ks]').forEach(e=>ks[e.dataset.ks]=e.scrollTop);
+  const y=window.scrollY;const ks={};$$('[data-ks]').forEach(e=>ks[e.dataset.ks]=[e.scrollTop,e.scrollLeft]);
   $('#main').innerHTML=V[ui.tab]();
-  $$('[data-ks]').forEach(e=>{if(ks[e.dataset.ks]!=null)e.scrollTop=ks[e.dataset.ks]});
+  $$('[data-ks]').forEach(e=>{const v=ks[e.dataset.ks];if(v!=null){e.scrollTop=v[0];e.scrollLeft=v[1]}});
   renderNav();autosizeAll();hydrateIdb();
+  const _rs=()=>$$('[data-ks]').forEach(e=>{const v=ks[e.dataset.ks];if(v!=null){e.scrollTop=v[0];e.scrollLeft=v[1]}});_rs();requestAnimationFrame(_rs);
   if(ui.tab==='pregled'){const hh=$('.hero4');if(hh&&!hh._fx){hh._fx=1;heroThread(hh)}const h=$('#hero');const src=SEED_IMGS[3]&&SEED_IMGS[3].src;if(h&&src)h.style.backgroundImage=`url("${src}")`;tickCountdown()}
   if(ui.tab==='sjedenje'&&ui.seatView==='plan')applyZoom();
   if(keepScroll!==false)window.scrollTo(0,y);
@@ -2456,6 +2476,10 @@ const A={
   floorBg(el,e){if(e.target.closest('.tb,.dance,.fitem'))return;if(ui.selT||ui.selSeat||ui.selI){ui.selT=null;ui.selSeat=null;ui.selI=null;render()}},
   delTable(el,e){e&&e.stopPropagation();deleteTable(el.dataset.id)},
   rotate(el){const t=tableById(el.dataset.id);t.rot=((t.rot||0)+90)%180;save();render()},
+  unseatM(el,e){e&&e.stopPropagation();const [m]=findMember(el.dataset.id);if(!m)return;m.table=null;m.seat=null;save();render()},
+  unseatGroup(el,e){e&&e.stopPropagation();const p=state.parties.find(x=>x.id===el.dataset.id);const tid=el.dataset.t;withUndo((p.name||'Grupa')+' maknuta sa stola',()=>{for(const m of p.members)if(m.table===tid){m.table=null;m.seat=null}})},
+  kidPlus(el,e){e&&e.stopPropagation();const [m]=findMember(el.dataset.id);m.kids=Math.min(3,num(m.kids)+1);save();render()},
+  kidMinus(el,e){e&&e.stopPropagation();const [m]=findMember(el.dataset.id);m.kids=Math.max(0,num(m.kids)-1);save();render()},
   clearTable(el){const id=el.dataset.id;withUndo('Stol ispražnjen',()=>{for(const p of state.parties)for(const m of p.members)if(m.table===id)unseat(m)})},
   addTable(el){const t=newTable(el.dataset.v,490,441);ui.selT=t.id;save();render()},
   applyPreset(){const k=$('#presetSel').value;withUndo('Raspored postavljen',()=>{const head=state.tables.find(t=>t.type==='head6');const keep={};
