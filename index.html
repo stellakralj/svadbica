@@ -1561,7 +1561,8 @@ try{let t=localStorage.getItem(LS+'-tab');if(NOTE_SUBS.includes(t)){ui.noteTab=t
 const cloud={ref:null,writing:false,pending:false};
 let saveT;
 function setStatus(t,busy){const el=$('#status');el.textContent=t;el.classList.toggle('busy',!!busy)}
-function save(){try{compactRooms()}catch(e){}state.updatedAt=Date.now();try{localStorage.setItem(LS,JSON.stringify(state))}catch(e){}setStatus('Spremanje…',true);clearTimeout(saveT);saveT=setTimeout(pushCloud,1200)}
+function syncRoomMembers(){if(!state.rooms||!state.rooms.list)return;for(const r of state.rooms.list)for(const mid of r.occupants||[]){const [m]=findMember(mid);if(!m)continue;m.roomNeed=true;m.roomNights=r.nights===1?1:2;if(r.payer!=='gratis')m.roomPay=['gosti','mi1'].includes(r.payer)?r.payer:'mi'}}
+function save(){try{compactRooms();syncRoomMembers()}catch(e){}state.updatedAt=Date.now();try{localStorage.setItem(LS,JSON.stringify(state))}catch(e){}setStatus('Spremanje…',true);clearTimeout(saveT);saveT=setTimeout(pushCloud,1200)}
 async function pushCloud(){
   if(!cloud.ref){setStatus('Spremljeno na uređaju');return}
   if(cloud.writing){cloud.pending=true;return}
@@ -2721,7 +2722,7 @@ function endDrag(s,e){document.body.style.userSelect='';
 
 /* ================= boot ================= */
 $('#modal').addEventListener('click',e=>{if(e.target.id==='modal')A.closeModal()});
-try{postMigrate()}catch(e){console.error(e)}try{compactRooms()}catch(e){}ensureFeed();render(false);updThemeBtn();setStatus('Spremljeno na uređaju');initCloud();
+try{postMigrate()}catch(e){console.error(e)}try{compactRooms();syncRoomMembers()}catch(e){}ensureFeed();render(false);updThemeBtn();setStatus('Spremljeno na uređaju');initCloud();
 </script>
 </body>
 </html>
